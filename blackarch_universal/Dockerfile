@@ -25,9 +25,12 @@ RUN   pacman --noconfirm --needed -Syu \
     wget \
     tzdata \
     curl \
-    make \
+    iputils \
+    make \ 
     nmap \
     whois \
+    openvpn \
+    go \ 
     python \
     python-pip \
     python3 \
@@ -56,12 +59,18 @@ RUN   pacman --noconfirm --needed -Syu \
     dnsrecon \
     # zsh
     powerline \
+    bat \
+    massdns \
+    domlink \
     exploitdb \
     gobuster \
+    metabigor \
     joomlascan \
+    sublist3r \ 
     wfuzz \
     metasploit \
     beef \
+    corsy \
     gdb \
     adb  \
     exploitpack \
@@ -77,40 +86,33 @@ RUN   pacman --noconfirm --needed -Syu \
     subover
 
 
-# Installin tools that are not available in blackarch repo
-RUN mkdir /$HOME/tools
-RUN export PATH=/$HOME/tools:$PATH
-# gwen001 github-search
-RUN cd /$HOME/tools && \
-git clone https://github.com/gwen001/github-search.git
-# subdominizer
+# Installing tools that are not available in blackarch repo
+RUN mkdir $HOME/tools
+RUN export PATH=$HOME/tools:$PATH
 
 #calebstewars pwncat
-RUN cd /$HOME/tools && \
+RUN cd $HOME/tools && \
 pip install git+https://github.com/calebstewart/pwncat.git
 # GDB GEF plugin
 RUN sh -c "$(curl -fsSL http://gef.blah.cat/sh)"
-# FavFreak
-RUN cd /$HOME/tools && \
- git clone https://github.com/devanshbatham/FavFreak && \
- cd FavFreak && \
- pip3 install virtualenv && \
- virtualenv -p python3 env && \
- source env/bin/activate && \
- python3 -m pip install mmh3 && \
- cat urls.txt | python3 favfreak.py
+
+
+ # Running 
 # Getting Luke Smith's .zshrc and installing oh-my-zsh
-RUN cd /$HOME && \
+RUN cd $HOME && \
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
 
 wget https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52/raw/2a93cca1ea82cecfc2bd6dcd2eff700a95c7581e/zshrc && \
 mv zshrc .zshrc
 
-# Setting up wordlists
-RUN cd /$HOME && \
-mkdir wordlists && \
-cd wordlists && \
-git clone https://github.com/danielmiessler/SecLists.git
 
+# Setting up man and bat 
+RUN export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# Setting up Lazyrecon
+RUN git clone https://github.com/Cloufish/bbht.git && \ 
+cd bbht && \ 
+chmod +755 install.sh  && \
+./install.sh
 
 CMD ["zsh"]
