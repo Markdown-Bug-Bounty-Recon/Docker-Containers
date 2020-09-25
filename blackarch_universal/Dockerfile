@@ -15,79 +15,8 @@ chmod 440 /etc/sudoers && \
 groupadd --gid $GROUP_ID penelope && \
 useradd --uid $USER_ID --gid $GROUP_ID --groups wheel --create-home penelope
 WORKDIR /root
-RUN   pacman --noconfirm --needed -Syu \
-    zsh \
-    zsh-syntax-highlighting \
-    tmux \
-    gcc \
-    git \
-    vim \
-    wget \
-    tzdata \
-    curl \
-    iputils \
-    make \ 
-    nmap \
-    whois \
-    openvpn \
-    go \ 
-    python \
-    python-pip \
-    python3 \
-    perl \
-    nikto \
-    net-tools \
-    zsh\
-    nano\
-    # sqlmap
-    sqlmap \
-    # dirb
-    dirb \
-    # dnsenum
-    cpanminus \
-    # wfuzz
-    python-pycurl \
-    # knock
-    python-dnspython \
-    # wpcscan
-    libxml2 \
-    # theharvester
-    python \
-    # hydra
-    hydra \
-    # dnsrecon
-    dnsrecon \
-    # zsh
-    powerline \
-    bat \
-    massdns \
-    domlink \
-    exploitdb \
-    gobuster \
-    metabigor \
-    joomlascan \
-    sublist3r \ 
-    wfuzz \
-    metasploit \
-    beef \
-    corsy \
-    gdb \
-    adb  \
-    exploitpack \
-    radare2 \
-    amass  \
-    aquatone \
-    metabigor \
-    domlink \
-    gospider \
-    subfinder \
-    masscan \
-    eyewitness \
-    subover
 
 
-# Installing tools that are not available in blackarch repo
-RUN mkdir $HOME/tools
 RUN export PATH=$HOME/tools:$PATH
 
 #calebstewars pwncat
@@ -106,10 +35,11 @@ wget https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbe
 mv zshrc .zshrc
 
 
+
 # Setting up man and bat 
 RUN export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# Setting up Lazyrecon
+# Setting up Lazyrecon tools, probably the most important part
 RUN git clone https://github.com/Cloufish/bbht.git && \ 
 cd bbht && \ 
 chmod +755 install.sh  && \
