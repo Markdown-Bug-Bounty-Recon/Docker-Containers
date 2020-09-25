@@ -16,9 +16,18 @@ groupadd --gid $GROUP_ID penelope && \
 useradd --uid $USER_ID --gid $GROUP_ID --groups wheel --create-home penelope
 WORKDIR /root
 
+RUN   pacman --noconfirm --needed -Syu \
+            git \
+            go \
+            python-pip \
+            ruby  
 
-RUN export PATH=$HOME/tools:$PATH
 
+# Setting up Lazyrecon tools, probably the most important part
+RUN git clone https://github.com/Cloufish/bbht.git && \ 
+cd bbht && \ 
+chmod +755 install.sh  && \
+./install.sh
 #calebstewars pwncat
 RUN cd $HOME/tools && \
 pip install git+https://github.com/calebstewart/pwncat.git
@@ -39,10 +48,6 @@ mv zshrc .zshrc
 # Setting up man and bat 
 RUN export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# Setting up Lazyrecon tools, probably the most important part
-RUN git clone https://github.com/Cloufish/bbht.git && \ 
-cd bbht && \ 
-chmod +755 install.sh  && \
-./install.sh
+
 
 CMD ["zsh"]
