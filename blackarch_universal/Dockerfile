@@ -3,6 +3,9 @@ ENV TERM xterm
 COPY ./pacman.conf /etc/pacman.conf
 COPY ./sudoers /etc/sudoers
 COPY ./entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+ENV USER_ID 1000
+ENV GROUP_ID 1000
 
 RUN pacman --sync --refresh --sysupgrade --noconfirm sudo \
 			git \
@@ -10,29 +13,20 @@ RUN pacman --sync --refresh --sysupgrade --noconfirm sudo \
             python \
             python-pip \
             ruby \
-            wget
-            
-RUN curl --silent --show-error --output ./strap.sh https://blackarch.org/strap.sh && \
+            wget && \
+curl --silent --show-error --output ./strap.sh https://blackarch.org/strap.sh && \
 chmod 755 ./strap.sh && \
 ./strap.sh && \
 rm ./strap.sh && \
 find / -type f '(' -name '*.pacnew' -or -name '*.pacsave' ')' -delete 2> /dev/null && \
-chmod 440 /etc/sudoers
-WORKDIR /root
-
-
-# Setting up Lazyrecon and other tools, probably the most important part
-RUN git clone https://github.com/Cloufish/bbht.git && \ 
-cd bbht && \ 
-chmod +755 install.sh  && \
-./install.sh
-#calebstewars pwncat
-#RUN cd $HOME/tools && \
-#pip install git+https://github.com/calebstewart/pwncat.git
+chmod 440 /etc/sudoers && \
+groupadd --gid $GROUP_ID penelope && \
+useradd --uid $USER_ID --gid $GROUP_ID --groups wheel --create-home penelope
+WORKDIR /home/penelope        
+RUN su penelope
 
 # GDB GEF plugin
 RUN sh -c "$(curl -fsSL http://gef.blah.cat/sh)"
-
 
 
 # Setting up zsh and getting Luke Smith's .zshrc and installing oh-my-zsh
@@ -44,10 +38,14 @@ wget https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbe
 mv zshrc .zshrc
 
 
-
 # Setting up man and bat 
 RUN export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-ENV PATH="/root/tools:${PATH}"
+# Setting up Lazyrecon and other tools, probably the most important part
+RUN git clone https://github.com/Cloufish/bbht.git && \ 
+cd bbht && \ 
+chmod +755 install.sh  && \
+./install.sh
 
-CMD ["zsh"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["zsh", "-i"]
