@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  blackarch-universal:
+    container_name: blackarch-zsh
+    image: blackarch-zsh
+    hostname: blackarch-zsh
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    volumes:
+      - '~/Pentesting:/home/penelope/Pentesting'
