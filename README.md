@@ -27,6 +27,23 @@ To stop the container type:
 
 ``` docker-compose down ```
 or Ctrl + c to gracefully exit the container
+### COMMON ISSUES - blackarch-zsh
+
+#### No internet access / Temporary failure in name resolution.
+
+This issue happened to me and it's caused by failure to resolve DNSes. I don't exactly know why it's happening to this image, and not dadevels, but there's a way to solve this:
+
+```sudo vim /etc/docker/daemon.json```
+
+and add following content
+```json
+{
+	"dns": ["8.8.8.8", "8.8.4.4"]
+}
+```
+then restart docker service with:
+
+``` sudo service docker restart ```
 
 ### How to expand this Dockerfile:
 There are few rules for expanding this Dockerfile:
@@ -35,9 +52,9 @@ There are few rules for expanding this Dockerfile:
 
 ### TODO - blackarch-zsh
 
-[ ] I want to separate dadevel's dockerfile with my, as it would improve redundancy of the docker image. Unfortunately, I tried that already and there were issues regarding ENTRYPOINT and in general - penelope user.
+- [ ] I want to separate dadevel's dockerfile with my, as it would improve redundancy of the docker image. Unfortunately, I tried that already and there were issues regarding ENTRYPOINT and in general - penelope user.
 
-[ ] For many people, docker-compose doesn't attach you to the container automatically. I don't know what might be the issue
+- [ ] For many people, docker-compose doesn't attach you to the container automatically. I don't know what might be the issue
 
 ### CONTRIBUTING
 
