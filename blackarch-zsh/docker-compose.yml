@@ -4,6 +4,9 @@ services:
     container_name: blackarch-zsh
     image: blackarch-zsh
     hostname: blackarch-zsh
+    ports:
+      - '80:80'
+      - '443:443'
     stdin_open: true
     tty: true
     restart: unless-stopped
