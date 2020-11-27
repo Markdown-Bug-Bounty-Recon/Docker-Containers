@@ -27,7 +27,7 @@ RUN sh -c "$(curl -fsSL http://gef.blah.cat/sh)"
 
 # Setting up zsh and getting Luke Smith's .zshrc and installing oh-my-zsh
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
-wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/zsh/.zshrc
+wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc
 
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && \
 mkdir ~/.config/ && mkdir ~/.config/nvim && \
@@ -43,12 +43,8 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # Setting up environment for Lazyrecon and other tools, probably the most important part
 
 RUN mkdir ~/PATH && \
-echo -e ' \n export PATH=/home/penelope/PATH:$PATH' >> .zshrc && \
 mkdir -p /home/penelope/.gem/ruby/2.7.0/bin && \
-echo -e 'export PATH=/home/penelope/.gem/ruby/2.7.0/bin:$PATH' >> .zshrc && \
 mkdir -p /home/penelope/.local/bin && \
-echo -e 'export PATH=/home/penelope/.local/bin:$PATH' >> .zshrc && \
-echo -e 'source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null' >> .zshrc && \
 source ~/.zshrc && \ 
 git clone https://github.com/Cloufish/non_blackarch_tools.git
 
