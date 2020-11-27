@@ -61,7 +61,7 @@ RUN cd /home/penelope/non_blackarch_tools && \
 
 USER root
 
-RUN pacman --needed --noconfirm -Syu tmux gcc git vim wget tzdata curl iputils make nmap whois openvpn go python python3 perl jq hq yq nikto subbrute peass net-tools nano sqlmap dirb cpanminus python-pycurl python-dnspython libxml2 python hydra dnsrecon powerline bat massdns domlink exploitdb gobuster metabigor joomlascan sublist3r wfuzz metasploit beef corsy gdb adb exploitpack radare2 amass aquatone metabigor domlink gospider subfinder masscan eyewitness subover webanalyze man parallel unzip dex2jar jadx assetfinder altdns httprobe unfurl waybackurls whatweb ffuf nuclei corsy smuggler base-devel jq subscraper hakrawler
+RUN pacman --needed --noconfirm -Syu tmux gcc git vim wget tzdata curl iputils make nmap whois openvpn go python python3 perl jq hq yq nikto subbrute peass net-tools nano sqlmap dirb cpanminus python-pycurl python-dnspython libxml2 python hydra dnsrecon powerline bat massdns domlink exploitdb gobuster metabigor joomlascan sublist3r wfuzz metasploit beef corsy gdb adb exploitpack radare2 amass aquatone metabigor domlink gospider subfinder eyewitness subover webanalyze man parallel unzip dex2jar jadx assetfinder httprobe altdns unfurl waybackurls whatweb ffuf nuclei corsy smuggler base-devel jq subscraper hakrawler brutespray eyewitness interlace aquatone chromium npm
 
 
 CMD ["zsh", "-i"]
