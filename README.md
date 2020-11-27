@@ -13,7 +13,7 @@ It also downloads blackarch-ctf-bugbounty.sh that would download many great tool
 
 First you need to build the image from Dockerfile
 
-``` docker build -t blackarch-zsh ```
+``` docker build -t blackarch-zsh . ```
 
 After that, all you need to do is run docker-compose!
 
