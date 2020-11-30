@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  blackarch-universal:
+  blackarch-zsh:
     container_name: blackarch-zsh
     image: blackarch-zsh
     hostname: blackarch-zsh
