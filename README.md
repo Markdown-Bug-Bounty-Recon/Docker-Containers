@@ -11,11 +11,15 @@ It also downloads blackarch-ctf-bugbounty.sh that would download many great tool
 
 ### USAGE - blackarch-zsh
 
-First you need to build the image from Dockerfile
+All you have to do to install this container is cloning this repo:
 
-``` docker build -t blackarch-zsh . ```
+```git clone https://github.com/Cloufish/dockerfiles.git```
 
-After that, all you need to do is run docker-compose!
+OR just wget docker-compose:
+
+```wget https://raw.githubusercontent.com/Cloufish/dockerfiles/master/blackarch-zsh/docker-compose.yml ```
+
+ and then in cloned folder/in folder where docker-compose.yml file is, execute:
 
 ``` docker-compose up ```
 
@@ -27,6 +31,8 @@ To stop the container type:
 
 ``` docker-compose down ```
 or Ctrl + c to gracefully exit the container
+
+This machine will be run always, unless you stopped it manually with 'docker stop'
 ### COMMON ISSUES - blackarch-zsh
 
 #### No internet access / Temporary failure in name resolution.

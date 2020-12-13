@@ -2,11 +2,17 @@ version: '3.3'
 services:
   blackarch-zsh:
     container_name: blackarch-zsh
-    image: blackarch-zsh
+    image: cloufish/blackarch-zsh
     hostname: blackarch-zsh
     ports:
       - '80:80'
       - '443:443'
+      - '20:20'
+      - '21:21'
+      - '22:22'
+      - '8080:8080'
+      - '1337:1337'
+      - '4444:4444'
     stdin_open: true
     tty: true
     restart: unless-stopped

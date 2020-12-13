@@ -21,6 +21,7 @@ RUN pacman --needed --noconfirm -Syu curl \
 		vim \
 		vi \
 		npm \
+		ruby-bundler \
 		zsh-syntax-highlighting
 
 USER penelope
@@ -30,8 +31,17 @@ RUN sh -c "$(curl -fsSL http://gef.blah.cat/sh)"
 
 # Setting up zsh and getting Luke Smith's .zshrc and installing oh-my-zsh
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
-rm /home/penelope/.zshrc && \
-wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc
+rm ~/.zshrc && \
+wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc
+
+# DOING THE SAME FOR ROOT USER
+USER root
+RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" && \
+rm ~/.zshrc && \
+wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc
+
+
+USER penelope
 
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && \
 mkdir ~/.config/ && mkdir ~/.config/nvim && \
@@ -43,17 +53,11 @@ mv tmux.conf .tmux.conf && \
 
 # Setting up man and bat
 
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# Setting up environment for non-blackarch-tools and other tools, probably the most important part
+export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Setting up environment for non-blackarch-tools and other tools, probably the most important part
 
-RUN mkdir /home/penelope/PATH 
-USER root
+RUN mkdir /home/penelope/PATH && \
 
-RUN echo -e "\n export PATH=/root/.gem/ruby/2.7.0/bin:$PATH" >> /root/.bashrc && \
-echo -e "\n export PATH=/home/penelope/.gem/ruby/2.7.0/bin:$PATH" >> /home/penelope/.bashrc && \
-source /root/.bashrc
-USER penelope
-RUN mkdir -p /home/penelope/.gem/ruby/2.7.0/bin && \
+mkdir -p /home/penelope/.gem/ruby/2.7.0/bin && \
 mkdir -p /home/penelope/.local/bin && \
 git clone https://github.com/Cloufish/non_blackarch_tools.git
 
@@ -73,11 +77,13 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu tmux gcc git vim wget tzdat
 
 RUN pacman --needed --noconfirm --overwrite='*' -Syu gobuster metabigor joomlascan sublist3r wfuzz metasploit beef corsy gdb adb exploitpack radare2
 
-RUN pacman --needed --noconfirm --overwrite='*, usr/lib/python3.8/site-packages/termcolor-1.1.0-py3.8.egg-info/*' -Syu amass aquatone metabigor domlink gospider subfinder eyewitness subover webanalyze man parallel unzip dex2jar jadx  assetfinder 
+RUN pacman --needed --noconfirm --overwrite='*, usr/lib/python3.8/site-packages/termcolor-1.1.0-py3.8.egg-info/*' -Syu amass aquatone metabigor domlink gospider subfinder subover webanalyze man parallel unzip dex2jar jadx  assetfinder 
 
-RUN pacman --needed --noconfirm --overwrite='*' -Syu httprobe unfurl waybackurls whatweb
+RUN pacman --needed --noconfirm --overwrite='*' -Syu httprobe unfurl openssh waybackurls whatweb postgresql smbclient openldap
 
-RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray eyewitness interlace chromium
+RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray interlace chromium
 
+
+RUN sed  -i 's/^Server/# Server/' /etc/pacman.d/blackarch-mirrorlist
 
 CMD ["zsh", "-i"]
