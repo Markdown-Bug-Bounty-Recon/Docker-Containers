@@ -75,7 +75,7 @@ pacman -Syu --noconfirm
 
 RUN pacman --needed --noconfirm --overwrite='*' -Syu tmux gcc git vim wget tzdata curl iputils make nmap whois openvpn go python python3 perl jq hq yq nikto subbrute peass net-tools nano sqlmap dirb cpanminus python-pycurl python-dnspython libxml2 python hydra dnsrecon powerline bat massdns domlink exploitdb 
 
-RUN pacman --needed --noconfirm --overwrite='*' -Syu gobuster metabigor joomlascan sublist3r wfuzz metasploit beef corsy gdb adb exploitpack radare2
+RUN pacman --needed --noconfirm --overwrite='*' -Syu gobuster metabigor joomlascan sublist3r wfuzz beef corsy gdb adb exploitpack radare2
 
 RUN pacman --needed --noconfirm --overwrite='*, usr/lib/python3.8/site-packages/termcolor-1.1.0-py3.8.egg-info/*' -Syu amass aquatone metabigor domlink gospider subfinder subover webanalyze man parallel unzip dex2jar jadx  assetfinder 
 
