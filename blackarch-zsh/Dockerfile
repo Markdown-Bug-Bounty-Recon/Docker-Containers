@@ -70,8 +70,10 @@ RUN cd /home/penelope/non_blackarch_tools && \
 
 
 USER root
-RUN sed  -i 's/^# Server/Server/' /etc/pacman.d/blackarch-mirrorlist && \
-pacman -Syu --noconfirm 
+
+RUN pacman -Syu --noconfirm 
+
+RUN sed  -i 's/^# Server/Server/' /etc/pacman.d/blackarch-mirrorlist
 
 RUN pacman --needed --noconfirm --overwrite='*' -Syu tmux gcc git vim wget tzdata curl iputils make nmap whois openvpn go python python3 perl jq hq yq nikto subbrute peass net-tools nano sqlmap dirb cpanminus python-pycurl python-dnspython libxml2 python hydra dnsrecon powerline bat massdns domlink exploitdb 
 

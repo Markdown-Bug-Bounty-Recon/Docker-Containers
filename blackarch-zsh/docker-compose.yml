@@ -2,7 +2,7 @@ version: '3.3'
 services:
   blackarch-zsh:
     container_name: blackarch-zsh
-    image: cloufish/blackarch-zsh
+    image: cloufish/blackarch-zsh:latest
     hostname: blackarch-zsh
     ports:
       - '80:80'
