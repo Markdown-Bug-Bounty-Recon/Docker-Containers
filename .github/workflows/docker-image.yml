@@ -22,7 +22,6 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: |
-        docker pull dadevel/blackarch
-        docker build . --file blackarch-zsh/Dockerfile --no-cache --tag cloufish/blackarch-zsh:latest
+        docker build . --file blackarch-zsh/Dockerfile --tag cloufish/blackarch-zsh:latest
     - name: Docker Push
       run: docker push cloufish/blackarch-zsh

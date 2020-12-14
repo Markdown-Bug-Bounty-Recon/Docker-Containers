@@ -92,7 +92,7 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu httprobe unfurl openssh way
 RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray interlace chromium msfdb
 
 
-RUN sed  -i 's/^Server/# Server/' "/etc/pacman.d/blackarch-mirrorlist"
+#RUN sed  -i 's/^Server/# Server/' "/etc/pacman.d/blackarch-mirrorlist"
 
 RUN cd /home/penelope/non_blackarch_tools && \
 ./install.sh
