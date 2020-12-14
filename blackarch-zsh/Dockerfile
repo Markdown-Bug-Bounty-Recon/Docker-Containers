@@ -66,12 +66,6 @@ USER root
 RUN chmod +x /home/penelope/non_blackarch_tools/install.sh
 
 
-RUN cd /home/penelope/non_blackarch_tools && \
-./install.sh
-
-
-USER root
-
 RUN pacman -Syyu --noconfirm 
 
 #RUN sed  -i 's/^# Server/Server/' "/etc/pacman.d/blackarch-mirrorlist"
