@@ -65,7 +65,7 @@ git clone https://github.com/Cloufish/non_blackarch_tools.git
 USER root
 RUN chmod +x /home/penelope/non_blackarch_tools/install.sh
 
-#USER penelope
+
 RUN cd /home/penelope/non_blackarch_tools && \
 ./install.sh
 
@@ -82,11 +82,15 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu gobuster metabigor joomlasc
 
 RUN pacman --needed --noconfirm --overwrite='*, usr/lib/python3.8/site-packages/termcolor-1.1.0-py3.8.egg-info/*' -Syu amass aquatone metabigor domlink gospider subfinder subover webanalyze man parallel unzip dex2jar jadx  assetfinder 
 
-RUN pacman --needed --noconfirm --overwrite='*' -Syu httprobe unfurl openssh waybackurls whatweb smbclient openldap metasploit
+RUN pacman --needed --noconfirm --overwrite='*' -Syu httprobe unfurl openssh waybackurls whatweb smbclient openldap metasploit msf-mpc
 
-RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray interlace chromium
+RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray interlace chromium msfdb
 
 
 #RUN sed  -i 's/^Server/# Server/' "/etc/pacman.d/blackarch-mirrorlist"
+
+RUN cd /home/penelope/non_blackarch_tools && \
+./install.sh
+
 
 CMD ["zsh", "-i"]
