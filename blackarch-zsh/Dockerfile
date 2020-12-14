@@ -97,5 +97,5 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler
 RUN cd /home/penelope/non_blackarch_tools && \
 ./install.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["sh", /entrypoint.sh"]
 CMD ["zsh", "-i"]
