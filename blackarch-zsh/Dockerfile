@@ -11,7 +11,6 @@ useradd --uid $USER_ID --gid $GROUP_ID --groups wheel --create-home penelope
 RUN export TERM=xterm && curl --silent --show-error https://blackarch.org/strap.sh | bash
 COPY ./entrypoint.sh /
 WORKDIR /home/penelope
-RUN /entrypoint.sh
 
 
 RUN pacman --needed --noconfirm -Syu curl \
@@ -80,10 +79,9 @@ RUN chmod +x /home/penelope/non_blackarch_tools/install.sh
 
 RUN pacman -Syyu --noconfirm 
 
-#RUN sed  -i 's/^# Server/Server/' "/etc/pacman.d/blackarch-mirrorlist"
+RUN sed  -i 's/^# Server/Server/' "/etc/pacman.d/blackarch-mirrorlist"
 
-RUN pacman --needed --noconfirm --overwrite='*' -Syu tmux gcc git vim wget tzdata curl iputils make nmap whois openvpn go python python3 perl jq hq yq nikto subbrute net-tools nano sqlmap cpanminus python-pycurl python-dnspython libxml2 python hydra powerline bat exploitdb 
-
+RUN pacman --needed --noconfirm --overwrite='*' -Syu tmux gcc git vim wget tzdata curl iputils make nmap whois openvpn go python python3 perl jq hq yq nikto subbrute net-tools nano sqlmap cpanminus python-pycurl python-dnspython libxml2 python hydra powerline bat exploitdb beef
 
 RUN pacman --needed --noconfirm --overwrite='*' -Syu gobuster metabigor joomlascan sublist3r wfuzz beef corsy gdb adb exploitpack radare2
 
@@ -94,10 +92,10 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu httprobe unfurl openssh way
 RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray interlace chromium msfdb
 
 
-#RUN sed  -i 's/^Server/# Server/' "/etc/pacman.d/blackarch-mirrorlist"
+RUN sed  -i 's/^Server/# Server/' "/etc/pacman.d/blackarch-mirrorlist"
 
 RUN cd /home/penelope/non_blackarch_tools && \
 ./install.sh
 
-
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["zsh", "-i"]
