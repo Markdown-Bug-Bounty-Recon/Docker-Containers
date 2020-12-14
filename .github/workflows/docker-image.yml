@@ -23,6 +23,6 @@ jobs:
     - name: Build the Docker image
       run: |
         docker pull dadevel/blackarch
-        docker build . --file blackarch-zsh/Dockerfile --no-cache --tag cloufish/blackarch-zsh:latest
+        docker build . --file blackarch-zsh/Dockerfile --no-cache --force-rm --tag cloufish/blackarch-zsh:latest
     - name: Docker Push
       run: docker push cloufish/blackarch-zsh
