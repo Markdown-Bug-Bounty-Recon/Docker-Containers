@@ -21,6 +21,7 @@ RUN pacman --needed --noconfirm -Syu curl \
 		vim \
 		vi \
 		npm \
+		postgresql \
 		ruby-bundler \
 		zsh-syntax-highlighting
 
@@ -71,9 +72,9 @@ RUN cd /home/penelope/non_blackarch_tools && \
 
 USER root
 
-RUN pacman -Syu --noconfirm 
+RUN pacman -Syyu --noconfirm 
 
-RUN sed  -i 's/^# Server/Server/' /etc/pacman.d/blackarch-mirrorlist
+#RUN sed  -i 's/^# Server/Server/' "/etc/pacman.d/blackarch-mirrorlist"
 
 RUN pacman --needed --noconfirm --overwrite='*' -Syu tmux gcc git vim wget tzdata curl iputils make nmap whois openvpn go python python3 perl jq hq yq nikto subbrute peass net-tools nano sqlmap dirb cpanminus python-pycurl python-dnspython libxml2 python hydra dnsrecon powerline bat massdns domlink exploitdb 
 
@@ -81,11 +82,11 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu gobuster metabigor joomlasc
 
 RUN pacman --needed --noconfirm --overwrite='*, usr/lib/python3.8/site-packages/termcolor-1.1.0-py3.8.egg-info/*' -Syu amass aquatone metabigor domlink gospider subfinder subover webanalyze man parallel unzip dex2jar jadx  assetfinder 
 
-RUN pacman --needed --noconfirm --overwrite='*' -Syu httprobe unfurl openssh waybackurls whatweb postgresql smbclient openldap
+RUN pacman --needed --noconfirm --overwrite='*' -Syu httprobe unfurl openssh waybackurls whatweb smbclient openldap metasploit
 
 RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray interlace chromium
 
 
-RUN sed  -i 's/^Server/# Server/' /etc/pacman.d/blackarch-mirrorlist
+#RUN sed  -i 's/^Server/# Server/' "/etc/pacman.d/blackarch-mirrorlist"
 
 CMD ["zsh", "-i"]
