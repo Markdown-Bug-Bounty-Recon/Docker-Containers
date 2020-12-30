@@ -98,7 +98,7 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler
 #RUN sed  -i 's/^Server/# Server/' "/etc/pacman.d/blackarch-mirrorlist"
 
 RUN cd /home/penelope/non_blackarch_tools && \
-./install.sh
+./install.sh && \
 rm -rf /home/penelope/non_blackarch_tools
 
 ENTRYPOINT ["sh","/entrypoint.sh"]

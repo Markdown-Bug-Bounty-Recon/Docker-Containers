@@ -68,7 +68,7 @@ RUN mkdir /home/penelope/PATH && \
 mkdir -p /home/penelope/.gem/ruby/2.7.0/bin && \
 mkdir -p /home/penelope/.local/bin
 
-
+USER root
 RUN pacman -Syyu --noconfirm 
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
