@@ -87,9 +87,9 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu gobuster metabigor joomlasc
 
 RUN pacman --needed --noconfirm --overwrite='*, usr/lib/python3.8/site-packages/termcolor-1.1.0-py3.8.egg-info/*' -Syu amass aquatone metabigor gospider subfinder subover webanalyze man parallel unzip dex2jar jadx  assetfinder 
 
-RUN pacman --needed --noconfirm --overwrite='*' -Syu httprobe unfurl openssh waybackurls whatweb smbclient openldap metasploit msf-mpc
+RUN pacman --needed --noconfirm --overwrite='*' -Syu httprobe unfurl openssh waybackurls whatweb smbclient openldap metasploit msf-mpc gnu-netcat
 
-RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray interlace chromium msfdb
+RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray interlace chromium msfdb jdk8-openjdk binwalk
 
 
 #RUN sed  -i 's/^Server/# Server/' "/etc/pacman.d/blackarch-mirrorlist"
@@ -98,4 +98,4 @@ RUN cd /home/penelope/non_blackarch_tools && \
 ./install.sh
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
-CMD ["zsh", "-i"]
+CMD ["zsh", "-ic", "tmux"]
