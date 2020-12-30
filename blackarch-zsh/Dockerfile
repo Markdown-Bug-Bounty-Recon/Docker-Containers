@@ -76,7 +76,7 @@ git clone https://github.com/Cloufish/non_blackarch_tools.git && \
 cp /home/penelope/non_blackarch_tools/exploit_databases_init.sh /home/penelope
 
 USER root
-RUN chmod +x /home/penelope/non_blackarch_tools/install.sh && \
+RUN chmod +x /home/penelope/non_blackarch_tools/install.sh
 
 
 
