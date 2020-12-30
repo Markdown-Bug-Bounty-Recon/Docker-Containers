@@ -66,7 +66,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Setting up man and bat
 RUN mkdir /home/penelope/PATH && \
 
 mkdir -p /home/penelope/.gem/ruby/2.7.0/bin && \
-mkdir -p /home/penelope/.local/bin && \
+mkdir -p /home/penelope/.local/bin
 
 
 RUN pacman -Syyu --noconfirm 

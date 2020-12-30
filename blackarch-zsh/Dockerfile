@@ -77,7 +77,6 @@ cp /home/penelope/non_blackarch_tools/exploit_databases_init.sh /home/penelope
 
 USER root
 RUN chmod +x /home/penelope/non_blackarch_tools/install.sh && \
-rm -rf non_blackarch_tools
 
 
 
@@ -100,6 +99,7 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler
 
 RUN cd /home/penelope/non_blackarch_tools && \
 ./install.sh
+rm -rf /home/penelope/non_blackarch_tools
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
