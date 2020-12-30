@@ -25,6 +25,7 @@ RUN pacman --needed --noconfirm -Syu curl \
 		gcc \
 		openvpn \
 		tmux \
+		man-pages \
 		sudo \
 		nodejs \
 		base-devel \
@@ -48,8 +49,7 @@ wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zsh
 USER root
 RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" && \
 rm ~/.zshrc && \
-wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc && \
-mandb
+wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc
 
 USER penelope
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && \

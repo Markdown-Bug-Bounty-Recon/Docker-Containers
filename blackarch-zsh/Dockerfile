@@ -26,6 +26,7 @@ RUN pacman --needed --noconfirm -Syu curl \
 		openvpn \
 		tmux \
 		sudo \
+		man-pages \
 		nodejs \
 		base-devel \
 		yarn \
@@ -99,7 +100,6 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler
 
 RUN cd /home/penelope/non_blackarch_tools && \
 ./install.sh
-mandb
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
