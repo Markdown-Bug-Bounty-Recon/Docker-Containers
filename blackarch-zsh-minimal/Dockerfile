@@ -58,7 +58,7 @@ chsh -s $(which zsh)
 # Setting up tmux
 
 USER penelope
-mkdir ~/.config/ && \
+RUN mkdir ~/.config/ && \
 cd ~/.config/ && \
 git clone https://github.com/gpakosz/.tmux.git && \
 ln -s -f ~/.config/.tmux/.tmux.conf ~/.tmux.conf && \
