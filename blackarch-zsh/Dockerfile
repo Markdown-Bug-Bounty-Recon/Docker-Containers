@@ -45,13 +45,13 @@ RUN sh -c "$(curl -fsSL http://gef.blah.cat/sh)"
 # Setting up zsh and getting Luke Smith's .zshrc and installing oh-my-zsh
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
 rm ~/.zshrc && \
-wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc
+wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc && \
 
 # Setting up tmux
 
-mkdir ~/.config/tmux/
-cd ~/.config/tmux/
-wget https://raw.githubusercontent.com/Cloufish/dotfiles/main/.config/tmux/.tmux.conf
+mkdir ~/.config/tmux/ && \
+cd ~/.config/tmux/ && \
+wget https://raw.githubusercontent.com/Cloufish/dotfiles/main/.config/tmux/.tmux.conf && \
 cd ~/
 
 # DOING THE SAME FOR ROOT USER
