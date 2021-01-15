@@ -47,7 +47,7 @@ wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zsh
 
 # Setting up tmux
 
-mkdir ~/.config/tmux/ && \
+mkdir -p ~/.config/tmux/ && \
 cd ~/.config/tmux/ && \
 wget https://raw.githubusercontent.com/Cloufish/dotfiles/main/.config/tmux/.tmux.conf && \
 cd ~/
@@ -64,8 +64,7 @@ mkdir ~/.config/ && mkdir ~/.config/nvim && \
 mv init.vim ~/.config/nvim && \
 cp ~/.config/nvim/init.vim ~/ &&\
 mv init.vim .vimrc
-RUN echo "set -g default-shell /bin/zsh" >> tmux.conf && \
-mv tmux.conf .tmux.conf && \
+
 
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Setting up man and bat
