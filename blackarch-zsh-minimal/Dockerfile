@@ -47,16 +47,12 @@ rm ~/.zshrc && \
 wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc && \
 
 # Setting up tmux
+mkdir ~/.config/ && \
+cd ~/.config/ && \
+git clone https://github.com/gpakosz/.tmux.git && \
+ln -s -f .tmux/.tmux.conf ~/.tmux.conf && \
+cp .tmux/.tmux.conf.local ~/.tmux.conf.local
 
-
-mkdir -p ~/.config/tmux/ && \
-cd ~/.config/tmux/ && \
-wget https://raw.githubusercontent.com/Cloufish/dotfiles/main/.config/tmux/.tmux.conf.local && \
-wget https://raw.githubusercontent.com/Cloufish/dotfiles/main/.config/tmux/.tmux.conf && \
-ln -s -f ~/.config/tmux/.tmux.conf ~/.tmux.conf && \
-cp ~/.config/tmux/.tmux.conf.local ~/.tmux.conf.local && \
-
-cd ~/
 
 # DOING THE SAME FOR ROOT USER
 USER root
@@ -66,7 +62,7 @@ wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zsh
 
 USER penelope
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && \
-mkdir ~/.config/nvim && \
+mkdir -p ~/.config/nvim && \
 mv init.vim ~/.config/nvim && \
 cp ~/.config/nvim/init.vim ~/ &&\
 mv init.vim .vimrc && \
