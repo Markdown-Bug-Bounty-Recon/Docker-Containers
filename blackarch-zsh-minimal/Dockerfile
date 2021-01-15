@@ -38,6 +38,12 @@ RUN pacman --needed --noconfirm -Syu curl \
 		ruby-bundler \
 		zsh-syntax-highlighting
 
+
+#Setting up password for penelope
+USER root
+RUN echo 'penelope' | passwd --stdin penelope 
+
+
 USER penelope
 
 
@@ -46,7 +52,7 @@ USER penelope
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
 rm ~/.zshrc && \
 wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc && \
-chsh -s $(which zsh) 
+echo 'penelope' > chsh -s $(which zsh)
 
 # DOING THE SAME FOR ROOT USER
 USER root
