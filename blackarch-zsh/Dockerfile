@@ -64,7 +64,7 @@ wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zsh
 USER penelope
 
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && \
-mkdir ~/.config/ && mkdir ~/.config/nvim && \
+mkdir ~/.config/nvim && \
 mv init.vim ~/.config/nvim && \
 cp ~/.config/nvim/init.vim ~/ &&\
 mv init.vim .vimrc && \
