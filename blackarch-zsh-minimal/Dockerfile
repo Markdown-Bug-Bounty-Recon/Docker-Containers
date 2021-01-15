@@ -42,25 +42,29 @@ USER penelope
 
 
 # Setting up zsh and getting Luke Smith's .zshrc and installing oh-my-zsh
+
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
 rm ~/.zshrc && \
 wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc && \
-
-# Setting up tmux
-mkdir ~/.config/ && \
-cd ~/.config/ && \
-git clone https://github.com/gpakosz/.tmux.git && \
-ln -s -f .tmux/.tmux.conf ~/.tmux.conf && \
-cp .tmux/.tmux.conf.local ~/.tmux.conf.local
-
+chsh -s $(which zsh) 
 
 # DOING THE SAME FOR ROOT USER
 USER root
 RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" && \
 rm ~/.zshrc && \
-wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc
+wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc && \
+chsh -s $(which zsh)
+
+# Setting up tmux
 
 USER penelope
+mkdir ~/.config/ && \
+cd ~/.config/ && \
+git clone https://github.com/gpakosz/.tmux.git && \
+ln -s -f ~/.config/.tmux/.tmux.conf ~/.tmux.conf && \
+cp ~/.config/.tmux/.tmux.conf.local ~/.tmux.conf.local
+
+
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && \
 mkdir -p ~/.config/nvim && \
 mv init.vim ~/.config/nvim && \
