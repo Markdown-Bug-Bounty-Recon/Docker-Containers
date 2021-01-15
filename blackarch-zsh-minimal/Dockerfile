@@ -63,7 +63,7 @@ RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/
 mkdir ~/.config/ && mkdir ~/.config/nvim && \
 mv init.vim ~/.config/nvim && \
 cp ~/.config/nvim/init.vim ~/ &&\
-mv init.vim .vimrc
+mv init.vim .vimrc && \
 
 
 
