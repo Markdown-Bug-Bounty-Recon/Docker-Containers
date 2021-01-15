@@ -38,31 +38,37 @@ RUN pacman --needed --noconfirm -Syu curl \
 		ruby-bundler \
 		zsh-syntax-highlighting
 
+#Setting up password for penelope
+USER root
+RUN echo "penelope:penelope" | chpasswd
+
+
 USER penelope
-# GDB GEF plugin
-RUN sh -c "$(curl -fsSL http://gef.blah.cat/sh)"
 
 
 # Setting up zsh and getting Luke Smith's .zshrc and installing oh-my-zsh
+
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
 rm ~/.zshrc && \
 wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc && \
-
-# Setting up tmux
-
-mkdir -p ~/.config/tmux/ && \
-cd ~/.config/tmux/ && \
-wget https://raw.githubusercontent.com/Cloufish/dotfiles/main/.config/tmux/.tmux.conf && \
-cd ~/
+echo 'penelope' > chsh -s /usr/bin/zsh
 
 # DOING THE SAME FOR ROOT USER
 USER root
 RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" && \
 rm ~/.zshrc && \
-wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc
+wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc && \
+chsh -s /usr/bin/zsh
 
+# Setting up tmux
 
 USER penelope
+RUN mkdir ~/.config/ && \
+cd ~/.config/ && \
+git clone https://github.com/gpakosz/.tmux.git && \
+echo "set -g default-command /usr/sbin/zsh" >>  ~/.config/.tmux/.tmux.conf.local && \
+ln -s -f ~/.config/.tmux/.tmux.conf ~/.tmux.conf && \
+cp ~/.config/.tmux/.tmux.conf.local ~/.tmux.conf.local
 
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && \
 mkdir ~/.config/nvim && \
