@@ -45,6 +45,13 @@ RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 rm ~/.zshrc && \
 wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc
 
+# Setting up tmux
+
+mkdir ~/.config/tmux/
+cd ~/.config/tmux/
+wget https://raw.githubusercontent.com/Cloufish/dotfiles/main/.config/tmux/.tmux.conf
+cd ~/
+
 # DOING THE SAME FOR ROOT USER
 USER root
 RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" && \
