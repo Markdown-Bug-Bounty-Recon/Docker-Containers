@@ -26,6 +26,7 @@ RUN pacman --needed --noconfirm -Syu curl \
 		openvpn \
 		tmux \
 		man-pages \
+		man-db \
 		sudo \
 		nodejs \
 		base-devel \
@@ -47,9 +48,14 @@ wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zsh
 
 # Setting up tmux
 
+
 mkdir -p ~/.config/tmux/ && \
 cd ~/.config/tmux/ && \
+wget https://raw.githubusercontent.com/Cloufish/dotfiles/main/.config/tmux/.tmux.conf.local && \
 wget https://raw.githubusercontent.com/Cloufish/dotfiles/main/.config/tmux/.tmux.conf && \
+ln -s -f ~/.config/tmux/.tmux.conf ~/.tmux.conf && \
+cp ~/.config/tmux/.tmux.conf.local ~/.tmux.conf.local && \
+
 cd ~/
 
 # DOING THE SAME FOR ROOT USER

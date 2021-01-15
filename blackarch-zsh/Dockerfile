@@ -25,6 +25,7 @@ RUN pacman --needed --noconfirm -Syu curl \
 		gcc \
 		openvpn \
 		tmux \
+		man-db \
 		sudo \
 		man-pages \
 		nodejs \
