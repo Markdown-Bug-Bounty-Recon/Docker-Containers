@@ -41,7 +41,7 @@ RUN pacman --needed --noconfirm -Syu curl \
 
 #Setting up password for penelope
 USER root
-RUN echo 'penelope' | passwd --stdin penelope 
+RUN echo "penelope:penelope" | chpasswd
 
 
 USER penelope
