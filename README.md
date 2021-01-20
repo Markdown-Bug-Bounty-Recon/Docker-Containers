@@ -1,13 +1,24 @@
 # Dockerfiles
 
-## blackarch-zsh
+### blackarch-zsh
 
-The blackarch-zsh is built upon dadevel's blackarch [HERE](https://github.com/dadevel/dockerfiles/tree/master/blackarch)
-The credit of creating users, managing permissions and basically creating basic blackarch environment goes to him.
+blackarch-zsh is my docker container that pre-configured with shell, environment tweaks while additional tools that (I found) helpful to my daily needs are installed.
 
-This version though offers few upgrades... one of them is the added zsh shell with nice Luke Smith's theme as default, though, you can change reference in this Dockerfile for any .zshrc that you want to have. There is also bat for better manpages and as a replacement of cat
+It also downloads non-blackarch-tools that are **not** in blackarch [repository](https://www.blackarch.org/tools.html)
 
-It also downloads blackarch-ctf-bugbounty.sh that would download many great tools for solving ctfs, hack the boxes, and that would be useful in bug bounty hunting and recon.
+### WHY BLACKARCH? Why not container based on Kali
+
+- The answer is simple. With Blackarch it's way easier to install packages with ```pacman -Syu <package_name>``` to install or ```pacman -Ss <package_name>``` to search for package.
+- There are way more tools available on Blackarch, even those that are not mainstream. With Kali, you're stuck with packages that the devs chose to add
+- It's way easier to ask for help if a given tool has some errors, because there's blackarch Discord server.
+
+>I'm not saying that there's no great community for Kali, I just find it way more accessible in blackarch.
+
+>Also, keep in mind, that it's mostly all about feeling confident with the OS you use, if you like Debian based apt package manager, nothing stops you from using it in Kali container. Though this container will probably remain blackarch based.
+
+### CONS OF USING BLACKARCH
+
+- If you're not proficient in Linux, or have never used Arch based OS, then you might struggle a bit with solving issues on your own. Though If we're saying about arch specific skills required to use this container then it's mostly knowledge about ```pacman``` package manager.
 
 ### USAGE - blackarch-zsh
 
@@ -33,28 +44,8 @@ To stop the container type:
 or Ctrl + c to gracefully exit the container
 
 This machine will be run always, unless you stopped it manually with 'docker stop'
-### COMMON ISSUES - blackarch-zsh
 
-#### No internet access / Temporary failure in name resolution.
 
-This issue happened to me and it's caused by failure to resolve DNSes. I don't exactly know why it's happening to this image, and not dadevels, but there's a way to solve this:
-
-```sudo vim /etc/docker/daemon.json```
-
-and add following content
-```json
-{
-	"dns": ["8.8.8.8", "8.8.4.4"]
-}
-```
-then restart docker service with:
-
-``` sudo service docker restart ```
-
-### How to expand this Dockerfile:
-There are few rules for expanding this Dockerfile:
-- Avoid using $HOME variable, as it will evaluate to root's directory and wouldn't affect the user 'penelope'. The `WORKDIR /home/penelope` makes that you don't need to use $HOME variable
-- Understanding of dadevel's Dockerfile is really helpful in expanding this Dockerfile
 
 ### TODO - blackarch-zsh
 
@@ -65,3 +56,4 @@ There are few rules for expanding this Dockerfile:
 ### CONTRIBUTING
 
 I am not an expert in building docker images and Dockerfiles, if you think you could solve the issue from TODO section, I would really appreaciate it
+
