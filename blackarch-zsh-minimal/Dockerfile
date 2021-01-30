@@ -53,6 +53,10 @@ RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 rm ~/.zshrc && \
 wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc && \
 echo 'penelope' > chsh -s /usr/bin/zsh
+### ASCII HEADER
+
+RUN wget https://raw.githubusercontent.com/Cloufish/non_blackarch_tools/main/.welcome.sh -O ~/.welcome.sh 
+
 
 # DOING THE SAME FOR ROOT USER
 USER root
