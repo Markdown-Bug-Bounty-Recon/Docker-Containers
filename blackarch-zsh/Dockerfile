@@ -32,6 +32,8 @@ RUN pacman --needed --noconfirm -Syu curl \
 		base-devel \
 		yarn \
 		vim \
+		lolcat \
+		figlet \
 		vi \
 		npm \
 		postgresql \
@@ -50,7 +52,7 @@ USER penelope
 
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && \
 rm ~/.zshrc && \
-wget https://raw.githubusercontent.com/Cloufish/voidrice/master/.config/zsh/.zshrc -O ~/.zshrc && \
+wget https://raw.githubusercontent.com/Cloufish/non_blackarch_tools/main/.zshrc -O ~/.zshrc && \
 echo 'penelope' > chsh -s /usr/bin/zsh
 ### ASCII HEADER
 
