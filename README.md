@@ -48,11 +48,7 @@ This machine will be run always, unless you stopped it manually with 'docker sto
 
 
 ### TODO - blackarch-zsh
-
-- [ ] I want to separate dadevel's dockerfile with my, as it would improve redundancy of the docker image. Unfortunately, I tried that already and there were issues regarding ENTRYPOINT and in general - penelope user.
-
-- [ ] For many people, docker-compose doesn't attach you to the container automatically. I don't know what might be the issue
-
+[ ] Fixing Bugs that I don't see :P
 ### CONTRIBUTING
 
 I am not an expert in building docker images and Dockerfiles, if you think you could solve the issue from TODO section, I would really appreaciate it
