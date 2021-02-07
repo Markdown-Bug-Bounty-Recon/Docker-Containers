@@ -48,7 +48,7 @@ This machine will be run always, unless you stopped it manually with 'docker sto
 
 
 ### TODO - blackarch-zsh
-[ ] Fixing Bugs that I don't see :P
+- [ ] Fixing Bugs that I don't see :P
 ### CONTRIBUTING
 
 I am not an expert in building docker images and Dockerfiles, if you think you could solve the issue from TODO section, I would really appreaciate it
