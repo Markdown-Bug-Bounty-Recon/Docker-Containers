@@ -2,7 +2,7 @@ FROM archlinux:latest
 ENV USER_ID 1000
 ENV GROUP_ID 1000
 COPY ./pacman.conf /etc/pacman.conf
-RUN mkdir /var/lib/pacman/
+RUN pacman -S runc
 RUN pacman --sync --refresh --sysupgrade --noconfirm core/filesystem core/sudo && \
 find / -type f '(' -name '*.pacnew' -or -name '*.pacsave' ')' -delete 2> /dev/null
 COPY ./sudoers /etc/sudoers
