@@ -25,20 +25,21 @@ RUN pacman --needed --noconfirm -Syu curl \
 		gcc \
 		openvpn \
 		tmux \
+		man-pages \
 		man-db \
 		sudo \
-		man-pages \
+		lolcat \
+		figlet \
 		nodejs \
 		base-devel \
 		yarn \
 		vim \
-		lolcat \
-		figlet \
 		vi \
 		npm \
 		postgresql \
 		ruby-bundler \
 		zsh-syntax-highlighting
+
 
 #Setting up password for penelope
 USER root
@@ -58,6 +59,7 @@ echo 'penelope' > chsh -s /usr/bin/zsh
 
 RUN wget https://raw.githubusercontent.com/Cloufish/non_blackarch_tools/main/.welcome.sh -O ~/.welcome.sh
 
+
 # DOING THE SAME FOR ROOT USER
 USER root
 RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" && \
@@ -75,48 +77,27 @@ echo "set -g default-command /usr/sbin/zsh" >>  ~/.config/.tmux/.tmux.conf.local
 ln -s -f ~/.config/.tmux/.tmux.conf ~/.tmux.conf && \
 cp ~/.config/.tmux/.tmux.conf.local ~/.tmux.conf.local
 
+
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && \
-mkdir ~/.config/nvim && \
+mkdir -p ~/.config/nvim && \
 mv init.vim ~/.config/nvim && \
 cp ~/.config/nvim/init.vim ~/ &&\
 mv init.vim .vimrc && \
 
-# Setting up man and bat
+COPY ./install.sh /home/penelope/
+RUN chmod +x /home/penelope/install.sh && \
+./install.sh
+'
 
-export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Setting up environment for non-blackarch-tools and other tools, probably the most important part
+export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Setting up man and bat
 
 RUN mkdir /home/penelope/PATH && \
 
 mkdir -p /home/penelope/.gem/ruby/2.7.0/bin && \
-mkdir -p /home/penelope/.local/bin && \
-git clone https://github.com/Cloufish/non_blackarch_tools.git && \
-cp /home/penelope/non_blackarch_tools/exploit_databases_init.sh /home/penelope
+mkdir -p /home/penelope/.local/bin
 
 USER root
-RUN chmod +x /home/penelope/non_blackarch_tools/install.sh
-
-
-
-RUN pacman -Syyu --noconfirm
-
-RUN sed  -i 's/^# Server/Server/' "/etc/pacman.d/blackarch-mirrorlist"
-
-RUN pacman --needed --noconfirm --overwrite='*' -Syu tmux gcc git vim wget tzdata curl iputils make nmap whois openvpn go python python3 perl jq hq yq nikto subbrute net-tools nano sqlmap cpanminus python-pycurl python-dnspython libxml2 python hydra powerline bat exploitdb beef
-
-RUN pacman --needed --noconfirm --overwrite='*' -Syu gobuster metabigor joomlascan sublist3r wfuzz beef corsy gdb adb exploitpack radare2 gitdorker gau linkfinder secretfinder
-
-RUN pacman --needed --noconfirm --overwrite='*, usr/lib/python3.8/site-packages/termcolor-1.1.0-py3.8.egg-info/*' -Syu amass aquatone metabigor gospider subfinder subover webanalyze man parallel unzip dex2jar jadx  assetfinder
-
-RUN pacman --needed --noconfirm --overwrite='*' -Syu httpx massdns unfurl openssh waybackurls whatweb smbclient openldap metasploit msf-mpc gnu-netcat samba
-
-RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray interlace chromium msfdb jdk8-openjdk binwalk smbclient wordlistctl haiti
-
-
-#RUN sed  -i 's/^Server/# Server/' "/etc/pacman.d/blackarch-mirrorlist"
-
-RUN cd /home/penelope/non_blackarch_tools && \
-./install.sh && \
-rm -rf /home/penelope/non_blackarch_tools
+RUN pacman -Syyu --noconfirm nuclei httprobe ffuf gau parallel amass jq gitdorker webanalyze
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
