@@ -60,5 +60,6 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag cloufish/bug_bounty_framework_web:latest
+      working-directory: ./bug_bounty_framework_web
     - name: Docker Push
       run: docker push cloufish/bug_bounty_framework_web
