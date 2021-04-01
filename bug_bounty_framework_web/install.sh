@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir /home/penelope/tools
+
 # Wappalyzer
 git clone https://github.com/aliasio/wappalyzer
 cd wappalyzer || { echo "Failure in cd command"; exit 1; }
