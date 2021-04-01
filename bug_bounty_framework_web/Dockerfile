@@ -8,6 +8,7 @@ COPY ./sudoers /etc/sudoers
 RUN chmod 440 /etc/sudoers && \
 groupadd --gid $GROUP_ID penelope && \
 useradd --uid $USER_ID --gid $GROUP_ID --groups wheel --create-home penelope
+RUN rm -rf /etc/pacman.d/gnupg
 RUN export TERM=xterm && curl --silent --show-error https://blackarch.org/strap.sh | bash
 COPY ./entrypoint.sh /
 WORKDIR /home/penelope
@@ -82,14 +83,10 @@ RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/
 mkdir -p ~/.config/nvim && \
 mv init.vim ~/.config/nvim && \
 cp ~/.config/nvim/init.vim ~/ &&\
-mv init.vim .vimrc && \
+mv init.vim .vimrc
 
-COPY ./install.sh /home/penelope/
-RUN chmod +x /home/penelope/install.sh && \
-./install.sh
-'
 
-export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Setting up man and bat
+RUN export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Setting up man and bat
 
 RUN mkdir /home/penelope/PATH && \
 
@@ -97,6 +94,11 @@ mkdir -p /home/penelope/.gem/ruby/2.7.0/bin && \
 mkdir -p /home/penelope/.local/bin
 
 USER root
+
+COPY ./install.sh /home/penelope/
+RUN chmod +x /home/penelope/install.sh && \
+./install.sh
+
 RUN pacman -Syyu --noconfirm nuclei httprobe ffuf gau parallel amass jq gitdorker webanalyze
 
 ENTRYPOINT ["sh","/entrypoint.sh"]

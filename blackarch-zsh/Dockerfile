@@ -8,6 +8,7 @@ COPY ./sudoers /etc/sudoers
 RUN chmod 440 /etc/sudoers && \
 groupadd --gid $GROUP_ID penelope && \
 useradd --uid $USER_ID --gid $GROUP_ID --groups wheel --create-home penelope
+RUN rm -rf /etc/pacman.d/gnupg
 RUN export TERM=xterm && curl --silent --show-error https://blackarch.org/strap.sh | bash
 COPY ./entrypoint.sh /
 WORKDIR /home/penelope

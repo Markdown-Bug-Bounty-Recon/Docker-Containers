@@ -8,6 +8,7 @@ COPY ./sudoers /etc/sudoers
 RUN chmod 440 /etc/sudoers && \
 groupadd --gid $GROUP_ID penelope && \
 useradd --uid $USER_ID --gid $GROUP_ID --groups wheel --create-home penelope
+RUN rm -rf /etc/pacman.d/gnupg
 RUN export TERM=xterm && curl --silent --show-error https://blackarch.org/strap.sh | bash
 COPY ./entrypoint.sh /
 WORKDIR /home/penelope
@@ -57,7 +58,7 @@ wget https://raw.githubusercontent.com/Cloufish/non_blackarch_tools/main/.zshrc 
 echo 'penelope' > chsh -s /usr/bin/zsh
 ### ASCII HEADER
 
-RUN wget https://raw.githubusercontent.com/Cloufish/non_blackarch_tools/main/.welcome.sh -O ~/.welcome.sh 
+RUN wget https://raw.githubusercontent.com/Cloufish/non_blackarch_tools/main/.welcome.sh -O ~/.welcome.sh
 
 
 # DOING THE SAME FOR ROOT USER
@@ -94,7 +95,7 @@ mkdir -p /home/penelope/.gem/ruby/2.7.0/bin && \
 mkdir -p /home/penelope/.local/bin
 
 USER root
-RUN pacman -Syyu --noconfirm 
+RUN pacman -Syyu --noconfirm
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
