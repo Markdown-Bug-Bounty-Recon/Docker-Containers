@@ -59,7 +59,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag cloufish/bug_bounty_framework_web:latest
-      working-directory: ./bug_bounty_framework_web
+        docker build . --file Dockerfile --tag cloufish/bug-bounty-framework-web:latest
+      working-directory: ./bug-bounty-framework-web
     - name: Docker Push
-      run: docker push cloufish/bug_bounty_framework_web
+      run: docker push cloufish/bug-bounty-framework-web
