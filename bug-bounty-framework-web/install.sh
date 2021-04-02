@@ -1,6 +1,7 @@
 #!/bin/bash
 
 mkdir /home/penelope/tools
+cd /home/penelope/tools
 
 # Wappalyzer
 git clone https://github.com/aliasio/wappalyzer
