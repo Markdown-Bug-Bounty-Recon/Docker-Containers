@@ -1,9 +1,9 @@
 version: '3.3'
 services:
   blackarch-zsh-minimal:
-    container_name: blackarch-zsh-minimal
-    image: cloufish/blackarch-zsh-minimal:latest
-    hostname: blackarch-zsh
+    container_name: bug-bounty-framework-web
+    image: cloufish/bug-bounty-framework-web:latest
+    hostname: bug-bounty-framework-web
     ports:
       - '80:80'
       - '443:443'
