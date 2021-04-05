@@ -118,9 +118,12 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 
 #My-Tools
-	#bug bounty framework
-	git clone https://github.com/Cloufish/bug_bounty_framework.git
-	cd /home/penelope/tools/bug_bounty_framework || { echo "Failure in cd command"; exit 1; }
+
+#bug bounty framework
+git clone https://github.com/Cloufish/bug_bounty_fram ework.git
+cd /home/penelope/tools/bug_bounty_framework/ || { echo "Failure in cd command"; exit 1; }
+ls | grep -v Web | parallel rm -rf
+cd /home/penelope/tools/bug_bounty_framework/Web || { echo "Failure in cd command"; exit 1; }
 
   for script in ./*.sh; do
 
@@ -129,12 +132,6 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
   done;
 	cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
-	# HTB_automation
-	git clone https://github.com/Cloufish/HTB_automation.git
-	cd HTB_automation || { echo "Failure in cd command"; exit 1; }
-	ln htb_recon.sh /home/penelope/PATH
-	ln htb_converter_to_markdown.sh /home/penelope/PATH
-	cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 
 
