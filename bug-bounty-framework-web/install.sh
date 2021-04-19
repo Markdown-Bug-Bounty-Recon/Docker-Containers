@@ -120,7 +120,7 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 #My-Tools
 
 #bug bounty framework
-git clone https://github.com/Cloufish/bug_bounty_fram ework.git
+git clone https://github.com/Cloufish/bug_bounty_framework.git
 cd /home/penelope/tools/bug_bounty_framework/ || { echo "Failure in cd command"; exit 1; }
 ls | grep -v Web | parallel rm -rf
 cd /home/penelope/tools/bug_bounty_framework/Web || { echo "Failure in cd command"; exit 1; }
