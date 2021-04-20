@@ -99,7 +99,7 @@ COPY ./install.sh /home/penelope/
 RUN chmod +x /home/penelope/install.sh && \
 ./install.sh
 
-RUN pacman -Syyu --noconfirm nuclei httprobe ffuf gau parallel amass jq gitdorker webanalyze
+RUN pacman -Syyu --noconfirm nuclei httprobe ffuf gau parallel amass jq gitdorker webanalyze chromium eyewitness
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
