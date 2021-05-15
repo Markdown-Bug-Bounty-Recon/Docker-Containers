@@ -150,6 +150,20 @@ rm grex-v1.2.0-x86_64-unknown-linux-musl.tar.gz
 mv grex /home/penelope/PATH
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
+## bbrf
+pip install bbrf
+cat > /home/penelope/.bbrf/config.json << EOF
+{
+    "username": "bbrf",
+    "password": "<your secure password>",
+    "couchdb": "https://<your-bbrf-server>/bbrf",
+    "slack_token": "<a slack token to receive notifications>",
+    "discord_webhook": "<your discord webhook if you want one>",
+    "ignore_ssl_errors": false
+}
+EOF
+
+
 ## GRANTING 755 PERMISSIONS ON ALL FILES IN PATH
 chown -R penelope /home/penelope/tools
 chmod -R 755 /home/penelope/tools
