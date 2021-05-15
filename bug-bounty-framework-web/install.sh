@@ -152,6 +152,7 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 ## bbrf
 pip install bbrf
+mkdir /home/penelope/.bbrf
 cat > /home/penelope/.bbrf/config.json << EOF
 {
     "username": "bbrf",
