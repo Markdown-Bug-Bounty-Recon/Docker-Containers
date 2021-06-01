@@ -20,27 +20,6 @@ cd /home/penelope/tools || { echo "Failure in cd command"; exit 1; }
 # Setting up wordlists
 mkdir /home/penelope/tools/SecLists
 cd /home/penelope/tools/SecLists || { echo "Failure in cd command"; exit 1; }
-mkdir Directory-Bruting
-cd Directory-Bruting || { echo "Failure in cd command"; exit 1; }
-wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/directory-list-2.3-small.txt
-wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/directory-list-2.3-medium.txt
-wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/directory-list-2.3-big.txt
-wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/raft-small-directories.txt
-cd ..
-mkdir Passwords
-
-cd Passwords  || { echo "Failure in cd command"; exit 1; }
-wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/xato-net-10-million-passwords-1000.txt
-wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/xato-net-10-million-passwords-10000.txt
-wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/xato-net-10-million-passwords-100000.txt
-wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/xato-net-10-million-passwords-1000000.txt
-wget https://gitlab.com/kalilinux/packages/wordlists/-/raw/kali/master/rockyou.txt.gz
-gunzip rockyou.txt.gz
-cd ..
-mkdir Usernames
-wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Usernames/xato-net-10-million-usernames-dup.txt -O ./xato-net-10-million-usernames-medium.txt
-wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Usernames/xato-net-10-million-usernames.txt
-cd ..
 mkdir Javascript-URLs
 cd Javascript-URLs || { echo "Failure in cd command"; exit 1; }
 wget https://s3.amazonaws.com/assetnote-wordlists/data/automated/httparchive_js_2021_01_28.txt -O js-wordlist.txt
@@ -87,16 +66,6 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 git clone https://github.com/projectdiscovery/nuclei-templates.git
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
-
-
-#Bug bounty checklists
-
-mkdir checklists
-cd checklists || { echo "Failure in cd command"; exit 1; }
-wget https://github.com/KathanP19/HowToHunt/raw/master/CheckList/Web_Checklist_by_Chintan_Gurjar.pdf
-wget https://raw.githubusercontent.com/KathanP19/HowToHunt/master/CheckList/Web-Application-Pentesting-checklist.md
-cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
-
 
 
 #Markdown-PP
@@ -156,7 +125,7 @@ mkdir /home/penelope/.bbrf
 cat > /home/penelope/.bbrf/config.json << EOF
 {
     "username": "bbrf",
-    "password": "<your secure password>",
+    "password": "penelope",
     "couchdb": "https://<your-bbrf-server>/bbrf",
     "slack_token": "<a slack token to receive notifications>",
     "discord_webhook": "<your discord webhook if you want one>",
