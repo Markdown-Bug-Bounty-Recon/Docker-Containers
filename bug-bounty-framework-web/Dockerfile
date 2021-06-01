@@ -39,7 +39,9 @@ RUN pacman --needed --noconfirm -Syu curl \
 		npm \
 		postgresql \
 		ruby-bundler \
-		zsh-syntax-highlighting
+		zsh-syntax-highlighting \
+		cron \ 
+		supervisor
 
 
 #Setting up password for penelope
