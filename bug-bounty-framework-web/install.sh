@@ -18,6 +18,10 @@ cd /home/penelope/tools || { echo "Failure in cd command"; exit 1; }
 # csv2md
 npm install -g csv2md
 
+## mdtable (tsv to markdown table)
+cd /home/penelope/PATH
+wget https://raw.githubusercontent.com/kusabashira/mdtable/master/mdtable
+
 # Setting up wordlists
 mkdir /home/penelope/tools/SecLists
 cd /home/penelope/tools/SecLists || { echo "Failure in cd command"; exit 1; }
@@ -81,7 +85,9 @@ git clone https://github.com/m4ll0k/Bug-Bounty-Toolz.git
 cd /home/penelope/tools/Bug-Bounty-Toolz || { echo "Failure in cd command"; exit 1; }
 for script in ./*.sh; do
 
-  ln $PWD/${script} /home/penelope/PATH
+  ln $PWD/${script} /home/penelope/
+  
+  
 
 done;
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
@@ -110,6 +116,7 @@ wget https://gist.githubusercontent.com/jhaddix/1fb7ab2409ab579178d2a79959909b33
 mv Gdorklinks.sh gdorklinks
 chmod +x gdorklinks
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
+
 
 
 ## grex
