@@ -15,7 +15,8 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 npm -g --force install js-beautify
 cd /home/penelope/tools || { echo "Failure in cd command"; exit 1; }
 
-
+# csv2md
+npm install -g csv2md
 
 # Setting up wordlists
 mkdir /home/penelope/tools/SecLists
