@@ -140,7 +140,8 @@ cat > /home/penelope/.bbrf/config.json << EOF
     "ignore_ssl_errors": false
 }
 EOF
-
+mkdir /root/.bbrf
+ln -s /home/penelope/.bbrf/config.json /root/.bbrf/config.json
 
 ## GRANTING 755 PERMISSIONS ON ALL FILES IN PATH
 chown -R penelope /home/penelope/tools
