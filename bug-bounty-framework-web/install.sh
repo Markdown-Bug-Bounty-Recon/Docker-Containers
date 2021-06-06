@@ -15,9 +15,12 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 npm -g --force install js-beautify
 cd /home/penelope/tools || { echo "Failure in cd command"; exit 1; }
 
+# csv2md
+npm install -g csv2md
 
-
-
+## mdtable (tsv to markdown table)
+cd /home/penelope/PATH
+wget https://raw.githubusercontent.com/kusabashira/mdtable/master/mdtable
 
 
 # massdns
@@ -56,16 +59,6 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 
 
-#Bug bounty checklists
-
-mkdir checklists
-cd checklists || { echo "Failure in cd command"; exit 1; }
-wget https://github.com/KathanP19/HowToHunt/raw/master/CheckList/Web_Checklist_by_Chintan_Gurjar.pdf
-wget https://raw.githubusercontent.com/KathanP19/HowToHunt/master/CheckList/Web-Application-Pentesting-checklist.md
-cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
-
-
-
 #Markdown-PP
 
 git clone https://github.com/jreese/markdown-pp.git
@@ -79,6 +72,7 @@ cd /home/penelope/tools/Bug-Bounty-Toolz || { echo "Failure in cd command"; exit
 for script in ./*.sh; do
 
   cp $PWD/${script} /home/penelope/PATH
+
 
 done;
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
@@ -113,6 +107,7 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 
 
+
 ## grex
 
 wget https://github.com/pemistahl/grex/releases/download/v1.2.0/grex-v1.2.0-x86_64-unknown-linux-musl.tar.gz
@@ -121,7 +116,24 @@ rm grex-v1.2.0-x86_64-unknown-linux-musl.tar.gz
 mv grex /home/penelope/PATH
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
-## Cleaning 
+## Cleaning
 rm -rf /home/penelope/tools
+
+## bbrf
+pip install bbrf
+mkdir /home/penelope/.bbrf
+cat > /home/penelope/.bbrf/config.json << EOF
+{
+    "username": "bbrf",
+    "password": "penelope",
+    "couchdb": "https://<your-bbrf-server>/bbrf",
+    "slack_token": "<a slack token to receive notifications>",
+    "discord_webhook": "<your discord webhook if you want one>",
+    "ignore_ssl_errors": false
+}
+EOF
+mkdir /root/.bbrf
+ln -s /home/penelope/.bbrf/config.json /root/.bbrf/config.json
+
 ## GRANTING 755 PERMISSIONS ON ALL FILES IN PATH
 chmod -R 755 /home/penelope/PATH

@@ -10,3 +10,7 @@ Also, the script is creating symlinks for the tools in ~/PATH directory
 
 
 # Installing
+
+## TODO
+- [ ] Update README
+- [ ] Clean port-forwarding / open ports
