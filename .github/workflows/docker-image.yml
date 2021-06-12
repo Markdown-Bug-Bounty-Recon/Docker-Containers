@@ -82,4 +82,4 @@ jobs:
         docker build . --file Dockerfile --tag cloufish/bug-bounty-framework-mobile:latest
       working-directory: ./bug-bounty-framework-mobile
     - name: Docker Push
-      run: docker push cloufish/bug-bounty-framework-web
+      run: docker push cloufish/bug-bounty-framework-mobile

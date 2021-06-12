@@ -8,9 +8,10 @@ WORKDIR /home/penelope
 USER root
 
 COPY ./install.sh /home/penelope/
+COPY ./setting-up-wordlists.sh /home/penelope/
 RUN chmod +x /home/penelope/install.sh && ./install.sh
 
-RUN pacman -Syu --noconfirm nuclei jre-openjdk-headless radare2 android-apktool androbugs drozer idb mara-framework python-frida-tools sign smalisca mitmproxy
+RUN pacman -Syu --noconfirm nuclei jre-openjdk-headless radare2 frida android-apktool androbugs drozer idb mara-framework python-frida-tools sign smalisca mitmproxy
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
