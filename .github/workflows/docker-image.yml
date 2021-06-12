@@ -46,7 +46,7 @@ jobs:
     - name: Docker Push
       run: docker push cloufish/blackarch-zsh-minimal
       
-  bug_bounty_framework_web:
+  bug-bounty-framework-web:
 
     runs-on: ubuntu-latest
 
@@ -62,5 +62,24 @@ jobs:
       run: |
         docker build . --file Dockerfile --tag cloufish/bug-bounty-framework-web:latest
       working-directory: ./bug-bounty-framework-web
+    - name: Docker Push
+      run: docker push cloufish/bug-bounty-framework-web
+  
+  bug-bounty-framework-mobile:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Build the Docker image
+      run: |
+        docker build . --file Dockerfile --tag cloufish/bug-bounty-framework-mobile:latest
+      working-directory: ./bug-bounty-framework-mobile
     - name: Docker Push
       run: docker push cloufish/bug-bounty-framework-web
