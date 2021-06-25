@@ -10,4 +10,9 @@ services:
     restart: unless-stopped
     volumes:
       - '~/Pentesting:/home/penelope/Pentesting'
-      - '~/Downloads:/home/penelope/Downloads'
+ services:
+    mobile-security-framework-mobsf:
+        ports:
+            - '8000:8000'
+        image: 'opensecurity/mobile-security-framework-mobsf:latest'
+     - '~/Downloads:/home/penelope/Downloads'
