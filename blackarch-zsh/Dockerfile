@@ -9,8 +9,8 @@ USER root
 
 COPY ./install.sh /home/penelope/
 COPY ./setting-up-wordlists.sh /home/penelope/
+COPY ./exploit_databases_init.sh /home/penelope
 RUN chmod +x /home/penelope/install.sh && ./install.sh
-
 
 RUN pacman -Syu --noconfirm
 
@@ -25,6 +25,7 @@ RUN pacman --needed --noconfirm --overwrite='*, usr/lib/python3.8/site-packages/
 RUN pacman --needed --noconfirm --overwrite='*' -Syu httpx massdns unfurl openssh waybackurls whatweb smbclient openldap metasploit msf-mpc gnu-netcat samba
 
 RUN pacman --needed --noconfirm --overwrite='*' -Syu  ffuf nuclei corsy smuggler jq subscraper hakrawler brutespray interlace chromium msfdb jdk8-openjdk binwalk smbclient wordlistctl haiti
+
 
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
