@@ -43,8 +43,8 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 git clone https://github.com/Cloufish/Markdown-Bug-Bounty-Recon.git
 cd /home/penelope/tools/Markdown-Bug-Bounty-Recon/ || { echo "Failure in cd command"; exit 1; }
 bash -c "shopt -s extglob"
-bash -c "rm !(*Web*)"
-cd /home/penelope/tools/Markdown-Bug-Bounty-Recon/Web || { echo "Failure in cd command"; exit 1; }
+bash -c "rm !(*Mobile*)"
+cd /home/penelope/tools/Markdown-Bug-Bounty-Recon/Mobile || { echo "Failure in cd command"; exit 1; }
 
   for script in ./*.sh; do
 
