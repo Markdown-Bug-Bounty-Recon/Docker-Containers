@@ -20,7 +20,7 @@ RUN pacman --needed --noconfirm --overwrite='*' -Syu tmux gcc git vim wget tzdat
 
 RUN pacman --needed --noconfirm --overwrite='*' -Syu gobuster metabigor joomlascan sublist3r wfuzz beef corsy gdb adb exploitpack radare2 gitdorker gau linkfinder secretfinder
 
-RUN pacman --needed --noconfirm --overwrite='*, usr/lib/python3.8/site-packages/termcolor-1.1.0-py3.8.egg-info/*' -Syu amass aquatone metabigor gospider subfinder subover webanalyze man parallel unzip dex2jar jadx  assetfinder
+RUN pacman --needed --noconfirm --overwrite='*' -Syu amass aquatone metabigor gospider subfinder subover webanalyze man parallel unzip dex2jar jadx  assetfinder
 
 RUN pacman --needed --noconfirm --overwrite='*' -Syu httpx massdns unfurl openssh waybackurls whatweb smbclient openldap metasploit msf-mpc gnu-netcat samba
 
