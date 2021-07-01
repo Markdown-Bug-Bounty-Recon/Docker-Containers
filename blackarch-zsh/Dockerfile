@@ -16,6 +16,7 @@ RUN pacman -Syu --noconfirm
 
 RUN sed  -i 's/^# Server/Server/' "/etc/pacman.d/blackarch-mirrorlist"
 
+RUN pacman --needed --noconfirm --verwrite='*' -S python-termcolor
 RUN pacman --needed --noconfirm --overwrite='*' -Syu nmap metasploit sqlmap exploitdb gobuster joomlascan wfuzz ffuf gdb adb exploitpack gau radare2 smbclient openldap msf-mpc jq msfdb binwalk wordlistctl haiti
 
 
