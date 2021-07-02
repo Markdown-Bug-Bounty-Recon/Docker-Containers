@@ -18,3 +18,5 @@ services:
         restart: unless-stopped
         stdin_open: true
         tty: true
+        volumes:
+          - '~/.local/share/MobSF:/root/.MobSF'
