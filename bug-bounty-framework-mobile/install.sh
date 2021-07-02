@@ -3,6 +3,11 @@
 mkdir /home/penelope/tools
 cd /home/penelope/tools || { echo "Failure in cd command"; exit 1; }
 
+# RMS Runtime Mobile Security Framework
+git clone https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security.git
+cd RMS-Runtime-Mobile-Security || { echo "Failure in cd command"; exit 1; }
+npm install
+
 # yay
 
 git clone https://aur.archlinux.org/yay.git &&
@@ -10,9 +15,6 @@ cd yay || { echo "Failure in cd command"; exit 1; }
 makepkg -si --no-confirm
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
-
-# android-sdk and ndk
-yay -S --no-confirm android-sdk android-ndk
 
 # Android APK Decompilation for The Lazy
 
@@ -23,6 +25,9 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 # csv2md
 npm install -g csv2md
+
+# Python pwntools
+pip install pwn
 
 ## mdtable (tsv to markdown table)
 cd /home/penelope/PATH
@@ -54,18 +59,6 @@ cd /home/penelope/tools/Markdown-Bug-Bounty-Recon/Mobile || { echo "Failure in c
 	cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 
-
-
-cd /home/penelope/PATH || { echo "Failure in cd command"; exit 1; }
-wget https://gist.githubusercontent.com/jhaddix/1fb7ab2409ab579178d2a79959909b33/raw/e9fea4c0f6982546d90d241bc3e19627a7083e5e/Gdorklinks.sh
-mv Gdorklinks.sh gdorklinks
-chmod +x gdorklinks
-cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
-
-
-## Cleaning
-rm -rf /home/penelope/tools
-rm ~/install.sh
 
 ## GRANTING 755 PERMISSIONS ON ALL FILES IN PATH
 chmod -R 755 /home/penelope/PATH

@@ -1,1 +1,4 @@
 # THIS CONTAINER PROVIDES A SETUP FOR REVERSE ENGINEERING ANDROID AND IOS APPS WITH RADARE2, FRIDA AND OTHER TOOLS
+
+- To access MOBSF, go to `localhost:8000`
+- To access Runtime Mobile Security, go to `localhost:5000`
