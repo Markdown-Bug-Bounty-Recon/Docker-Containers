@@ -43,11 +43,11 @@ RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/
 
 RUN mkdir /home/penelope/PATH && mkdir -p /home/penelope/.gem/ruby/2.7.0/bin && mkdir -p /home/penelope/.local/bin
 
-COPY ./install.sh /home/penelope/
-RUN chmod +x /home/penelope/install.sh && ./install.sh
-
 USER root
 RUN pacman -Syu --noconfirm
+
+COPY ./install.sh /home/penelope/
+RUN chmod +x /home/penelope/install.sh && ./install.sh
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
