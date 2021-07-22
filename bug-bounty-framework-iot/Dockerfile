@@ -8,7 +8,6 @@ WORKDIR /home/penelope
 USER root
 
 COPY ./install.sh /home/penelope/
-COPY ./setting-up-wordlists.sh /home/penelope/
 RUN chmod +x /home/penelope/install.sh && ./install.sh
 
 RUN pacman -Syu --overwrite='*' --noconfirm fat binwalk
