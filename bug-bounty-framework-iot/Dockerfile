@@ -10,7 +10,7 @@ USER root
 COPY ./install.sh /home/penelope/
 RUN chmod +x /home/penelope/install.sh && ./install.sh
 
-RUN pacman -Syu --overwrite='*' --noconfirm fat binwalk
+RUN pacman -Syu --overwrite='*' --noconfirm binwalk
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]

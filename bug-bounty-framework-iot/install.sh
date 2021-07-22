@@ -10,7 +10,11 @@ cd yay || { echo "Failure in cd command"; exit 1; }
 makepkg -si --no-confirm
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
-
+# FAT - Firmware Analysis Toolkit
+git clone https://github.com/attify/firmware-analysis-toolkit
+cd firmware-analysis-toolkit || { echo "Failure in cd command"; exit 1; }
+./setup.sh
+cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 # Python pwntools
 pip install pwn
