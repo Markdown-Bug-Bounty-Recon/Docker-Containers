@@ -26,7 +26,7 @@ RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 COPY ./.zshrc /home/penelope/.zshrc
 RUN echo 'penelope' > chsh -s /usr/bin/zsh
 # Copying Luke Smith's shell files
-RUN mkdir ~/.config/shell
+RUN mkdir -r ~/.config/shell
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/shell/aliasrc -O ~/.config/shell/aliasrc
 
 
@@ -43,7 +43,7 @@ RUN chsh -s /usr/bin/zsh
 # Setting up tmux
 
 USER penelope
-RUN mkdir ~/.config/ && cd ~/.config/ && git clone https://github.com/gpakosz/.tmux.git && echo "set -g default-command /usr/sbin/zsh" >>  ~/.config/.tmux/.tmux.conf.local && ln -s -f ~/.config/.tmux/.tmux.conf ~/.tmux.conf && cp ~/.config/.tmux/.tmux.conf.local ~/.tmux.conf.local
+RUN cd ~/.config/ && git clone https://github.com/gpakosz/.tmux.git && echo "set -g default-command /usr/sbin/zsh" >>  ~/.config/.tmux/.tmux.conf.local && ln -s -f ~/.config/.tmux/.tmux.conf ~/.tmux.conf && cp ~/.config/.tmux/.tmux.conf.local ~/.tmux.conf.local
 
 
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && mkdir -p ~/.config/nvim && mv init.vim ~/.config/nvim && cp ~/.config/nvim/init.vim ~/ && mv init.vim .vimrc && 
