@@ -46,7 +46,7 @@ USER penelope
 RUN cd ~/.config/ && git clone https://github.com/gpakosz/.tmux.git && echo "set -g default-command /usr/sbin/zsh" >>  ~/.config/.tmux/.tmux.conf.local && ln -s -f ~/.config/.tmux/.tmux.conf ~/.tmux.conf && cp ~/.config/.tmux/.tmux.conf.local ~/.tmux.conf.local
 
 
-RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && mkdir -p ~/.config/nvim && mv init.vim ~/.config/nvim && cp ~/.config/nvim/init.vim ~/ && mv init.vim .vimrc && 
+RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/nvim/init.vim && mkdir -p ~/.config/nvim && mv init.vim ~/.config/nvim && cp ~/.config/nvim/init.vim ~/ && mv init.vim .vimrc
 
 # Setting up man and bat
 RUN export MANPAGER="sh -c 'col -bx | bat -l man -p'" 
