@@ -26,7 +26,7 @@ RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 COPY ./.zshrc /home/penelope/.zshrc
 RUN echo 'penelope' > chsh -s /usr/bin/zsh
 # Copying Luke Smith's shell files
-RUN mkdir -r ~/.config/shell
+RUN mkdir -p ~/.config/shell
 RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/shell/aliasrc -O ~/.config/shell/aliasrc
 
 
