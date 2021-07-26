@@ -3,6 +3,8 @@
 
 #ROOT INSTALLATIONS
 #create a tools folder in ~/
+
+
 mkdir /home/penelope/tools
 cd /home/penelope/tools || { echo "Failure in cd command"; exit 1; }
 
@@ -21,6 +23,11 @@ gem install bundler && bundle install --without test
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 echo "done"
 
+# exiftool
+cd /home/penelope/PATH || { echo "Failure in cd command"; exit 1; }
+wget  https://raw.githubusercontent.com/exiftool/exiftool/master/exiftool
+chmod +x exiftool
+cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 # polenum
 

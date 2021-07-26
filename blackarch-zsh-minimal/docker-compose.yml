@@ -4,15 +4,7 @@ services:
     container_name: blackarch-zsh-minimal
     image: cloufish/blackarch-zsh-minimal:latest
     hostname: blackarch-zsh
-    ports:
-      - '80:80'
-      - '443:443'
-      - '20:20'
-      - '21:21'
-      - '22:22'
-      - '8080:8080'
-      - '1337:1337'
-      - '4444:4444'
+    network_mode: host
     stdin_open: true
     tty: true
     restart: unless-stopped

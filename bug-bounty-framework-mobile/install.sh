@@ -8,13 +8,6 @@ git clone https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security.git
 cd RMS-Runtime-Mobile-Security || { echo "Failure in cd command"; exit 1; }
 npm install
 
-# yay
-
-git clone https://aur.archlinux.org/yay.git &&
-cd yay || { echo "Failure in cd command"; exit 1; }
-makepkg -si --no-confirm
-cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
-
 
 # Android APK Decompilation for The Lazy
 

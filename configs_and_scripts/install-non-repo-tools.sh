@@ -180,12 +180,6 @@ cd masscan || { echo "Failure in cd command"; exit 1; }
 su -c make penelope
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
-# yay
-
-git clone https://aur.archlinux.org/yay-git.git
-cd yay-git || { echo "Failure in cd command"; exit 1; }
-su -c make penelope
-cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 # polenum
 
