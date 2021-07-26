@@ -23,7 +23,7 @@ USER penelope
 # Setting up zsh and getting Luke Smith's .zshrc and installing oh-my-zsh
 
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && rm ~/.zshrc 
-COPY ./zshrc ~/.zshrc
+COPY zshrc ~/.zshrc
 RUN echo 'penelope' > chsh -s /usr/bin/zsh
 # Copying Luke Smith's shell files
 RUN mkdir ~/.config/shell
@@ -37,7 +37,7 @@ RUN wget https://raw.githubusercontent.com/Cloufish/non_blackarch_tools/main/.we
 # DOING THE SAME FOR ROOT USER
 USER root
 RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" && rm ~/.zshrc
-COPY ./zshrc ~/.zshrc
+COPY zshrc ~/.zshrc
 RUN echo 'penelope' > chsh -s /usr/bin/zsh
 RUN chsh -s /usr/bin/zsh
 # Setting up tmux
