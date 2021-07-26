@@ -56,8 +56,8 @@ RUN mkdir /home/penelope/PATH && mkdir -p /home/penelope/.gem/ruby/2.7.0/bin && 
 USER root
 RUN pacman -Syu --noconfirm
 
-COPY ./install.sh /home/penelope/
-RUN chmod +x /home/penelope/install.sh && ./install.sh
+COPY ./install.sh /home/penelope/install.sh
+RUN chmod +x /home/penelope/install.sh && /home/penelope/install.sh
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
