@@ -18,6 +18,24 @@ function runcom(){
     $@
 }
 
+# Environments:
+PYTHONIOENCODING=utf-8
+
+# Aliases
+  ## lsd
+  alias ls='lsd'
+  alias l='ls -l'
+  alias la='ls -a'
+  alias lla='ls -la'
+  alias lt='ls --tree'
+
+  ## curlie
+  alias curl='curlie'
+
+# Load aliases and shortcuts if existent.
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -79,7 +97,7 @@ bindkey '^[[P' delete-char
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-# PATHS Environment Variables
+# PATHS
 
  export PATH=/home/penelope/PATH:$PATH
  export PATH=/home/penelope/.gem/ruby/2.7.0/bin:$PATH
@@ -87,16 +105,7 @@ bindkey '^e' edit-command-line
 
  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# Aliases
-  ## lsd
-  alias ls='lsd'
-  alias l='ls -l'
-  alias la='ls -a'
-  alias lla='ls -la'
-  alias lt='ls --tree'
 
-  ## curlie
-  alias curl='curlie'
 
 zsh ~/.welcome.sh
 # Load syntax highlighting; should be last.
