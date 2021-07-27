@@ -21,14 +21,15 @@ function runcom(){
 # Environments:
 PYTHONIOENCODING=utf-8
 
-# Aliases
+# Aliases IMPORTANT
   ## lsd
   alias ls='lsd'
   alias l='ls -l'
   alias la='ls -a'
   alias lla='ls -la'
   alias lt='ls --tree'
-
+  ##zoxide
+  alias cd='z'
   ## curlie
   alias curl='curlie'
 
