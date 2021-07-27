@@ -22,7 +22,7 @@ RUN chmod +x /home/penelope/install.sh && ./install.sh
 RUN chmod +x /home/penelope/setting-up-wordlists.sh && ./setting-up-wordlists.sh
 
 USER penelope
-RUN yay --needed --noconfirm -S stegsnow
+#RUN yay --needed --noconfirm -S stegsnow # fatal: repository 'https://anonscm.debian.org/git/collab-maint/stegsnow.git/' not found
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
