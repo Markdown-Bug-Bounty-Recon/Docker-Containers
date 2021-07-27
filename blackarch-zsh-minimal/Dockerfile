@@ -57,7 +57,10 @@ USER root
 RUN pacman -Syu --noconfirm
 
 COPY ./install.sh /home/penelope/install.sh
-RUN chmod +x /home/penelope/install.sh && /home/penelope/install.sh
+RUN chmod +x /home/penelope/install.sh
+
+USER penelope
+RUN /home/penelope/install.sh
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
