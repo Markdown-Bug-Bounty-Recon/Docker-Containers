@@ -12,7 +12,7 @@ RUN pacman -Syu --noconfirm
 
 RUN sed  -i 's/^# Server/Server/' "/etc/pacman.d/blackarch-mirrorlist"
 
-RUN pacman --needed --noconfirm --overwrite='*' 'python-termcolor' -Syu nmap metasploit sqlmap exploitdb gobuster joomlascan wfuzz ffuf gdb adb exploitpack gau radare2 smbclient openldap msf-mpc jq msfdb binwalk wordlistctl haiti
+RUN pacman --needed --noconfirm --overwrite='*' 'python-termcolor' -Syu nmap metasploit sqlmap exploitdb ngrok gobuster joomlascan wfuzz ffuf gdb adb qpdf exploitpack gau radare2 smbclient openldap msf-mpc jq msfdb binwalk wordlistctl haiti
 
 COPY ./install.sh /home/penelope/
 COPY ./setting-up-wordlists.sh /home/penelope/

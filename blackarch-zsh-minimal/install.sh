@@ -11,3 +11,6 @@ git clone https://aur.archlinux.org/yay-git.git
 cd yay-git || { echo "Failure in cd command"; exit 1; }
 makepkg --noconfirm --needed -si
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
+
+
+

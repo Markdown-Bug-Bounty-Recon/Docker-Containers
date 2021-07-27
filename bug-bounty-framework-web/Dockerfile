@@ -12,7 +12,7 @@ COPY ./setting-up-wordlists.sh /home/penelope/
 RUN chmod +x /home/penelope/install.sh && ./install.sh
 
 
-RUN pacman -Syu --noconfirm nuclei httprobe ffuf gau parallel amass jq gitdorker webanalyze hakrawler httpx unfurl
+RUN pacman -Syu --noconfirm nuclei httprobe ffuf gau parallel amass jq gitdorker webanalyze hakrawler httpx unfurl ngrok
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
