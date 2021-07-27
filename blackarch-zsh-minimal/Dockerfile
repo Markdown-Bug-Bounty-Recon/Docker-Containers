@@ -63,7 +63,7 @@ RUN chmod +x /home/penelope/install.sh
 
 USER penelope
 RUN /home/penelope/install.sh
-yay -S --needed --noconfirm zoxide
+RUN yay -S --needed --noconfirm zoxide
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
