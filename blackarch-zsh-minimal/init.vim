@@ -59,7 +59,7 @@ set noshowcmd
         let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
     endif
 
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 
 
 " vimling:

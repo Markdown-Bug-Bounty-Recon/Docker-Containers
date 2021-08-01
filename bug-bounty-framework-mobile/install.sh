@@ -16,6 +16,11 @@ cd apkx &&
 sudo ./install.sh &&
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
+# enjarify
+
+git clone --depth 1 https://github.com/Storyyeller/enjarify;
+ln -s /home/penelope/tools/enjarify/enjarify.sh /home/penelope/PATH/enjarify;
+cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 # csv2md
 npm install -g csv2md
 
@@ -23,7 +28,7 @@ npm install -g csv2md
 pip install pwn
 
 ## mdtable (tsv to markdown table)
-cd /home/penelope/PATH
+cd /home/penelope/PATH || { echo "Failure in cd command"; exit 1; }
 wget https://raw.githubusercontent.com/kusabashira/mdtable/master/mdtable
 
 
@@ -34,6 +39,9 @@ cd markdown-pp || { echo "Failure in cd command"; exit 1; }
 pip install MarkdownPP
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
+# r2frida
+r2pm init
+r2pm -ci r2frida
 
 #My-Tools
 
