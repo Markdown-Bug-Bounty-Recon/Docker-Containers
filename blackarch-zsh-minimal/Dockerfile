@@ -30,7 +30,6 @@ RUN echo 'penelope' > chsh -s /usr/bin/zsh
 # Copying Luke Smith's shell files
 RUN mkdir -p ~/.config/shell
 COPY aliasrc home/penelope/.config/shell/aliasrc
-RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/shell/aliasrc -O ~/.config/shell/aliasrc
 
 
 ### ASCII HEADER
