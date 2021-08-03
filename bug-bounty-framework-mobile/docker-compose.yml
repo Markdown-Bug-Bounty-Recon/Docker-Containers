@@ -13,8 +13,8 @@ services:
       - '~/Downloads:/home/penelope/Downloads'
 
   mobile-security-framework-mobsf:
-    ports:
-      - '8000:8000'
+      ports:
+        - '8000:8000'
       image: 'opensecurity/mobile-security-framework-mobsf:latest'
       restart: unless-stopped
       stdin_open: true
