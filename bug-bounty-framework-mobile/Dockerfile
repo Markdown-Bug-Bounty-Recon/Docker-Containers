@@ -1,4 +1,4 @@
-FROM cloufish/blackarch-zsh-minimal
+FROM cloufish/blackarch-zsh-minimal:latest
 ENV USER_ID 1000
 ENV GROUP_ID 1000
 COPY ./entrypoint.sh /

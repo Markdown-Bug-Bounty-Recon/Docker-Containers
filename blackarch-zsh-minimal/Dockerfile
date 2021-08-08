@@ -13,7 +13,7 @@ WORKDIR /home/penelope
 RUN pacman --needed --noconfirm -S curl wget git gcc-go python python-pip iputils ruby zsh gcc openvpn tmux man-pages man-db sudo lolcat figlet nodejs base-devel yarn neovim npm postgresql ruby-bundler zsh-syntax-highlighting
 
 #From -> https://github.com/ibraheemdev/modern-unix
-RUN pacman --needed --noconfirm -S lsd tldr httpie curlie jq
+RUN yay --needed --noconfirm -S lsd tldr curlie jq zoxide
 
 #Setting up password for penelope
 USER root
@@ -28,8 +28,8 @@ RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 COPY ./.zshrc /home/penelope/.zshrc
 RUN echo 'penelope' > chsh -s /usr/bin/zsh
 # Copying Luke Smith's shell files
-RUN mkdir -p ~/.config/shell
-COPY aliasrc home/penelope/.config/shell/aliasrc
+RUN mkdir -p /home/penelope/.config/shell
+COPY aliasrc /home/penelope/.config/shell/aliasrc
 
 
 ### ASCII HEADER
@@ -63,7 +63,6 @@ RUN chmod +x /home/penelope/install.sh
 
 USER penelope
 RUN /home/penelope/install.sh
-RUN yay -S --needed --noconfirm zoxide
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
