@@ -1,0 +1,8 @@
+{
+    "username": "bbrf",
+    "password": "penelope",
+    "couchdb": "https://couchdb/bbrf",
+    "slack_token": "<a slack token to receive notifications>",
+    "discord_webhook": "<your discord webhook if you want one>",
+    "ignore_ssl_errors": false
+}

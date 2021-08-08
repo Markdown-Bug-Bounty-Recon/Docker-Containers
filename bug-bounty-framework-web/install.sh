@@ -19,7 +19,7 @@ cd /home/penelope/tools || { echo "Failure in cd command"; exit 1; }
 npm install -g csv2md
 
 ## mdtable (tsv to markdown table)
-cd /home/penelope/PATH
+cd /home/penelope/PATH || { echo "Failure in cd command"; exit 1; }
 wget https://raw.githubusercontent.com/kusabashira/mdtable/master/mdtable
 
 
@@ -30,6 +30,8 @@ wget https://raw.githubusercontent.com/kusabashira/mdtable/master/mdtable
  su -c make penelope
  cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
+# puredns
+GO111MODULE=on go get github.com/d3mondev/puredns/v2
 
 #dnmasscan
 
@@ -114,17 +116,6 @@ rm -rf /home/penelope/tools
 
 ## bbrf
 pip install bbrf
-mkdir /home/penelope/.bbrf
-cat > /home/penelope/.bbrf/config.json << EOF
-{
-    "username": "bbrf",
-    "password": "penelope",
-    "couchdb": "https://<your-bbrf-server>/bbrf",
-    "slack_token": "<a slack token to receive notifications>",
-    "discord_webhook": "<your discord webhook if you want one>",
-    "ignore_ssl_errors": false
-}
-EOF
 mkdir /root/.bbrf
 ln -s /home/penelope/.bbrf/config.json /root/.bbrf/config.json
 
