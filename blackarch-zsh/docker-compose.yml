@@ -1,9 +1,9 @@
 version: '3.3'
 services:
   blackarch-zsh:
-    container_name: blackarch-zsh
-    image: cloufish/blackarch-zsh:latest
-    hostname: blackarch-zsh
+    container_name: blackarch-zsh-minimal
+    image: cloufish/blackarch-zsh-minimal:latest
+    hostname: blackarch-zsh-minimal
     network_mode: host
     stdin_open: true
     tty: true

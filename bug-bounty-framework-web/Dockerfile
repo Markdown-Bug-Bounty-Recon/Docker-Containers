@@ -1,4 +1,4 @@
-FROM cloufish/blackarch-zsh-minimal
+FROM cloufish/blackarch-zsh-minimal:latest
 ENV USER_ID 1000
 ENV GROUP_ID 1000
 COPY ./entrypoint.sh /
@@ -17,6 +17,7 @@ RUN pacman -Syu --noconfirm nuclei httprobe ffuf gau parallel amass jq gitdorker
 USER penelope
 # bbrf
 RUN mkdir -p /home/penelope/.bbrf
+COPY ./config.json /home/penelope/.bbrf/
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]

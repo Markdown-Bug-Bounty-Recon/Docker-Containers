@@ -28,7 +28,7 @@ services:
       - COUCHDB_PASSWORD=penelope    # please please please replace this with a secure password
       - BBRF_PASSWORD=penelope    # please please please replace this with a secure password
     volumes:
-      - ./data/couchdb/1:/opt/couchdb/data
+      - ~/.data/couchdb/1:/opt/couchdb/data
   proxy:
     image: nginx
     hostname: proxy
