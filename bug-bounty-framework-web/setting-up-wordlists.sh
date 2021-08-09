@@ -27,7 +27,7 @@ wget https://wordlists-cdn.assetnote.io/data/manual/2m-subdomains.txt
 cd ..
 # nuclei-templates
 git clone https://github.com/projectdiscovery/nuclei-templates.git
-cd ..
+# resolvers
 mkdir Resolvers
 cd Resolvers || { echo "Failure in cd command"; exit 1; }
 wget https://raw.githubusercontent.com/janmasarik/resolvers/master/resolvers.txt

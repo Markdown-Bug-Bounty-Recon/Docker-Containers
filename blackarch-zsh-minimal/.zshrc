@@ -43,8 +43,10 @@ eval "$(zoxide init bash)"
  export PATH=/home/penelope/.gem/ruby/2.7.0/bin:$PATH
  export PATH=/home/penelope/.local/bin:$PATH
 # BAT
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export PATH="$HOME/Pentesting/Projects/Markdown-Bug-Bounty-Recon:$PATH"
+export GOPATH="$HOME/go"
+PATH="$GOPATH/bin:$PATH"
 # welcome
 zsh ~/.welcome.sh
 # -----------------------------------------
