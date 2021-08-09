@@ -12,9 +12,6 @@ WORKDIR /home/penelope
 
 RUN pacman --needed --noconfirm -S curl wget git gcc-go python python-pip iputils ruby zsh gcc openvpn tmux man-pages man-db sudo lolcat figlet nodejs base-devel yarn neovim npm postgresql ruby-bundler zsh-syntax-highlighting
 
-#From -> https://github.com/ibraheemdev/modern-unix
-RUN yay --needed --noconfirm -S lsd tldr curlie jq zoxide
-
 #Setting up password for penelope
 USER root
 RUN echo "penelope:penelope" | chpasswd
@@ -63,6 +60,9 @@ RUN chmod +x /home/penelope/install.sh
 
 USER penelope
 RUN /home/penelope/install.sh
+
+#From -> https://github.com/ibraheemdev/modern-unix
+RUN yay --needed --noconfirm -S lsd tldr curlie jq zoxide
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]
