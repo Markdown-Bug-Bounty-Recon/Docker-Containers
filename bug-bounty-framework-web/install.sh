@@ -23,16 +23,21 @@ npm install -g csv2md
 cd /home/penelope/PATH || { echo "Failure in cd command"; exit 1; }
 wget https://raw.githubusercontent.com/kusabashira/mdtable/master/mdtable
 
+cd "${tools_directory}" || { echo "Failure in cd command"; exit 1; }
 
 # massdns
 
  git clone https://github.com/blechschmidt/massdns.git
  cd massdns || { echo "Failure in cd command"; exit 1; }
  su -c make penelope
+ ln "${tools_directory}"/massdns/bin/massdns /home/penelope/PATH/massdns
 cd "${tools_directory}" || { echo "Failure in cd command"; exit 1; }
 
 # puredns
-GO111MODULE=on go get github.com/d3mondev/puredns/v2
+export GO111MODULE=on && go get github.com/d3mondev/puredns/v2
+
+# dnsgen
+sudo -H pip3 install dnsgen
 
 #dnmasscan
 
@@ -102,6 +107,7 @@ cd "${tools_directory}" || { echo "Failure in cd command"; exit 1; }
 ## Scripthunter.sh
 git clone https://github.com/robre/scripthunter.git
 cd scripthunter || { echo "Failure in cd command"; exit 1; }
+chmod +x scripthunter.sh
 ln "${tools_directory}"/scripthunter/scripthunter.sh /home/penelope/PATH/scripthunter
 cd ..
 ## grex

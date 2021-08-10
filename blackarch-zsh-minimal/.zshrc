@@ -44,8 +44,9 @@ eval "$(zoxide init bash)"
  export PATH=/home/penelope/.local/bin:$PATH
 # BAT
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export PATH="$HOME/Pentesting/Projects/Markdown-Bug-Bounty-Recon:$PATH"
-export GOPATH="$HOME/go"
+export PATH="/home/penelope/Pentesting/Projects/Markdown-Bug-Bounty-Recon/Web:$PATH"
+export PATH="/home/penelope/Pentesting/Projects/Markdown-Bug-Bounty-Recon/Mobile:$PATH"
+export GOPATH="/home/penelope/go"
 PATH="$GOPATH/bin:$PATH"
 # welcome
 zsh ~/.welcome.sh
