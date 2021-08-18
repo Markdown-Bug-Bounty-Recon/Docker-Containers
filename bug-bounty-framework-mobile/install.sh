@@ -43,6 +43,9 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 r2pm init
 r2pm -ci r2frida
 
+# apk-mitm - Tool to prepare the apk for Capturing Packets
+npm install -g apk-mitm
+
 #My-Tools
 
 #bug bounty framework
