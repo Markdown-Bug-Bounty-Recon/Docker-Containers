@@ -22,6 +22,7 @@ alias \
 	yta="yt -x -f bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner"
 	vim="nvim" \
+	adr="adb root" \
 
 # Colorize commands when possible.
 alias \
