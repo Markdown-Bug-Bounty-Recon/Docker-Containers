@@ -15,4 +15,4 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 rm -rf /home/penelope/tools
 
 # ciphey
-python3 -m pip install ciphey --upgrade
+python3 -m pip install ciphey pycryptodome telnetlib --upgrade

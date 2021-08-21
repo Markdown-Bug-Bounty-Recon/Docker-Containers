@@ -5,15 +5,7 @@ services:
     container_name: bug-bounty-framework-web
     image: cloufish/bug-bounty-framework-web:latest
     hostname: bug-bounty-framework-web
-    ports:
-      - '80:80'
-      - '443:443'
-      - '20:20'
-      - '21:21'
-      - '22:22'
-      - '8080:8080'
-      - '1337:1337'
-      - '4444:4444'
+    network_mode: host
     stdin_open: true
     tty: true
     restart: unless-stopped

@@ -10,7 +10,7 @@ RUN export TERM=xterm && curl --silent --show-error https://blackarch.org/strap.
 COPY ./entrypoint.sh /
 WORKDIR /home/penelope
 
-RUN pacman --needed --noconfirm -S curl wget git gcc-go python python-pip iputils ruby zsh gcc openvpn gnu-netcat jython tmux man-pages man-db sudo lolcat figlet nodejs base-devel yarn neovim npm postgresql ruby-bundler zsh-syntax-highlighting
+RUN pacman --needed --noconfirm -S curl wget git python python-pip iputils ruby zsh gcc openvpn gnu-netcat jython tmux man-pages man-db sudo lolcat figlet nodejs base-devel yarn neovim npm postgresql ruby-bundler zsh-syntax-highlighting
 
 #Setting up password for penelope
 USER root
