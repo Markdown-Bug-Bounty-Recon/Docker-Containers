@@ -67,6 +67,8 @@ wget https://raw.githubusercontent.com/CiscoCXSecurity/enum4linux/master/enum4li
 touch /etc/samba/smb.conf
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
+r2pm init
+r2pm install r2dec
 
 ## GRANTING 755 PERMISSIONS ON ALL FILES IN PATH
 chown -R penelope /home/penelope/tools
@@ -74,3 +76,4 @@ chmod -R 755 /home/penelope/tools
 chown -R penelope /home/penelope/PATH #Takes too much space for Docker container
 chmod -R 755 /home/penelope/PATH
 echo -e "\n\n\n\n\n\n\n\n\n\n\nDone! All tools are set up in ~/tools"
+
