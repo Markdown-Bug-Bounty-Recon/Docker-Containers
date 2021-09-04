@@ -1,9 +1,9 @@
 version: '3.3'
 services:
-  blackarch-zsh-minimal:
-    container_name: bug-bounty-framework-mobile
-    image: cloufish/bug-bounty-framework-mobile:latest
-    hostname: bug-bounty-framework-mobile
+  blackarch-zsh-forensics:
+    container_name: blackarch-zsh-forensics
+    image: cloufish/blackarch-zsh-forensics:latest
+    hostname: blackarch-zsh-forensics
     network_mode: host
     stdin_open: true
     tty: true
@@ -11,23 +11,3 @@ services:
     volumes:
       - '~/Pentesting:/home/penelope/Pentesting'
       - '~/Downloads:/home/penelope/Downloads'
-
-  mobile-security-framework-mobsf:
-      ports:
-        - '8000:8000'
-      image: 'opensecurity/mobile-security-framework-mobsf:latest'
-      restart: unless-stopped
-      stdin_open: true
-      tty: true
-      volumes:
-        - '~/.local/share/MobSF:/root/.MobSF'
-
-  drozer:
-    container_name: drozer
-    image: fsecurelabs/drozer
-    hostname: drozer
-    network_mode: host
-    stdin_open: true
-    tty: true
-    restart: unless-stopped
-    command: bash -c "drozer console connect"
