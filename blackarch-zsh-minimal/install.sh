@@ -15,7 +15,7 @@ cd /home/penelope/tools || { echo "Failure in cd command"; exit 1; }
 
 git clone https://aur.archlinux.org/yay.git
 cd yay || { echo "Failure in cd command"; exit 1; }
-makepkg -si --noconfirm --needed
+makepkg -si --noconfirm
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 rm -rf /home/penelope/tools
