@@ -21,4 +21,4 @@ cd /home/penelope/tools || { echo "Failure in cd command"; exit 1; }
 rm -rf /home/penelope/tools
 
 # ciphey
-python -m pip install ciphey
+# python -m pip install ciphey
