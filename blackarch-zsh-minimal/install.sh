@@ -7,13 +7,13 @@ mkdir /home/penelope/tools
 cd /home/penelope/tools || { echo "Failure in cd command"; exit 1; }
 
 # yay
-git clone https://aur.archlinux.org/yay-git.git
-cd yay-git || { echo "Failure in cd command"; exit 1; }
-makepkg --noconfirm --needed -si 
-cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
+#git clone https://aur.archlinux.org/yay-git.git
+#cd yay-git || { echo "Failure in cd command"; exit 1; }
+#makepkg --noconfirm --needed -si 
+#cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 # arsenal
-git clone https://github.com/Orange-Cyberdefense/arsenal.gi
+git clone https://github.com/Orange-Cyberdefense/arsenal.git
 cd arsenal || { echo "Failure in cd command"; exit 1; }
 python3 -m pip install -r requirements.txt
 cp ./run /home/penelope/PATH
