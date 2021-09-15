@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  blackarch-zsh-forensics:
+    container_name: blackarch-zsh-forensics
+    image: cloufish/blackarch-zsh-forensics:latest
+    hostname: blackarch-zsh-forensics
+    network_mode: host
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    volumes:
+      - '~/Pentesting:/home/penelope/Pentesting'
+      - '~/Downloads:/home/penelope/Downloads'

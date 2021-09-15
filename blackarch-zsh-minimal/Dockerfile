@@ -10,8 +10,7 @@ RUN export TERM=xterm && curl --silent --show-error https://blackarch.org/strap.
 COPY ./entrypoint.sh /
 WORKDIR /home/penelope
 
-RUN pacman --needed --noconfirm -S curl wget git gcc-go python python-pip iputils ruby zsh gcc openvpn tmux man-pages man-db sudo lolcat figlet nodejs base-devel yarn neovim npm postgresql ruby-bundler zsh-syntax-highlighting
-
+RUN pacman --needed --noconfirm -S curl wget git python python-pip iputils ruby zsh gcc openvpn gnu-netcat unzip jython tmux xclip yay man-pages man-db sudo lolcat figlet nodejs base-devel yarn neovim npm postgresql ruby-bundler zsh-syntax-highlighting
 
 #Setting up password for penelope
 USER root
@@ -24,10 +23,10 @@ USER penelope
 
 RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && rm ~/.zshrc 
 COPY ./.zshrc /home/penelope/.zshrc
-RUN echo 'penelope' > chsh -s /usr/bin/zsh
+RUN echo 'penelope' | chsh -s /usr/bin/zsh
 # Copying Luke Smith's shell files
-RUN mkdir -p ~/.config/shell
-RUN wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.config/shell/aliasrc -O ~/.config/shell/aliasrc
+RUN mkdir -p /home/penelope/.config/shell
+COPY aliasrc /home/penelope/.config/shell/aliasrc
 
 
 ### ASCII HEADER
@@ -37,8 +36,8 @@ RUN wget https://raw.githubusercontent.com/Cloufish/non_blackarch_tools/main/.we
 # DOING THE SAME FOR ROOT USER
 USER root
 RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" && rm ~/.zshrc
-COPY ./.zshrc /home/penelope/.zshrc
-RUN echo 'penelope' > chsh -s /usr/bin/zsh
+COPY ./.zshrc ~/.zshrc
+RUN echo 'penelope' | chsh -s /usr/bin/zsh
 RUN chsh -s /usr/bin/zsh
 # Setting up tmux
 
@@ -61,6 +60,9 @@ RUN chmod +x /home/penelope/install.sh
 
 USER penelope
 RUN /home/penelope/install.sh
+
+#From -> https://github.com/ibraheemdev/modern-unix
+RUN yay --needed --noconfirm -S lsd tldr curlie jq zoxide
 
 ENTRYPOINT ["sh","/entrypoint.sh"]
 CMD ["zsh", "-ic", "tmux"]

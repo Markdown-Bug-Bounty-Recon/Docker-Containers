@@ -12,6 +12,7 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
+# BLACKARCH ZONE -------------------------------------------
 function runcom(){
     echo "$@"
     ## Run the command
@@ -21,7 +22,35 @@ function runcom(){
 # Environments:
 PYTHONIOENCODING=utf-8
 
+# Aliases IMPORTANT
+  ## lsd
+  alias ls='lsd'
+  alias l='ls -l'
+  alias la='ls -a'
+  alias lla='ls -la'
+  alias lt='ls --tree'
+  ##zoxide
+  alias cd='z'
+  ## curlie
+  alias curl='curlie'
 
+# Initialize zoxide
+eval "$(zoxide init bash)"
+
+# PATHS
+
+ export PATH=/home/penelope/PATH:$PATH
+ export PATH=/home/penelope/.gem/ruby/2.7.0/bin:$PATH
+ export PATH=/home/penelope/.local/bin:$PATH
+# BAT
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export PATH="/home/penelope/Pentesting/Projects/Markdown-Bug-Bounty-Recon/Web:$PATH"
+export PATH="/home/penelope/Pentesting/Projects/Markdown-Bug-Bounty-Recon/Mobile:$PATH"
+export GOPATH="/home/penelope/go"
+PATH="$GOPATH/bin:$PATH"
+# welcome
+zsh ~/.welcome.sh
+# -----------------------------------------
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
@@ -87,12 +116,12 @@ bindkey '^[[P' delete-char
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-# PATHS
 
- export PATH=/home/penelope/PATH:$PATH
- export PATH=/home/penelope/.gem/ruby/2.7.0/bin:$PATH
- export PATH=/home/penelope/.local/bin:$PATH
 
-zsh ~/.welcome.sh
+
+
+
+
+
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null

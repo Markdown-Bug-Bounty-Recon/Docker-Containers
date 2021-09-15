@@ -1,0 +1,8 @@
+{
+    "username": "admin",
+    "password": "penelope",
+    "couchdb": "https://proxy:443/bbrf",
+    "slack_token": "<a slack token to receive notifications>",
+    "discord_webhook": "<your discord webhook if you want one>",
+    "ignore_ssl_errors": true
+}
