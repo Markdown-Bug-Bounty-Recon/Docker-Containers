@@ -120,7 +120,8 @@ bindkey '^e' edit-command-line
 
 
 
-
+# run arsenal for tmux
+run -t
 
 
 # Load syntax highlighting; should be last.
