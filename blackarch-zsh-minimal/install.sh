@@ -16,7 +16,7 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 git clone https://github.com/Orange-Cyberdefense/arsenal.gi
 cd arsenal || { echo "Failure in cd command"; exit 1; }
 python3 -m pip install -r requirements.txt
-cp ./run /home/penelope/PATH
+ln -s /home/penelope/tools/arsenal/run /home/penelope/PATH/
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 # ciphey
