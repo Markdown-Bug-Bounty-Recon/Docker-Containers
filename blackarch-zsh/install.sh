@@ -60,8 +60,12 @@ pip install bpython requests beautifulsoup4 lxml
 	cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 
+# To update Offilne GTFO Bins
+gtfoblookup update
 
-
+# Cloning john related toolkit
+git clone https://github.com/openwall/john.git
+ln /home/penelope/tools/john/run/ssh2john /home/penelope/PATH
 # enum4linux
 wget https://raw.githubusercontent.com/CiscoCXSecurity/enum4linux/master/enum4linux.pl -O /home/penelope/PATH/enum4linux
 touch /etc/samba/smb.conf

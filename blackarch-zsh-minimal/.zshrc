@@ -121,7 +121,7 @@ bindkey '^e' edit-command-line
 
 
 # run arsenal for tmux
-run -t
+run -t -e
 
 
 # Load syntax highlighting; should be last.

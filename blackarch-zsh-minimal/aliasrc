@@ -23,6 +23,7 @@ alias \
 	ffmpeg="ffmpeg -hide_banner"
 	vim="nvim" \
 	adr="adb root" \
+	r="run -t -e"
 
 # Colorize commands when possible.
 alias \

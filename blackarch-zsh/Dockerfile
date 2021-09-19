@@ -12,7 +12,7 @@ RUN pacman -Syu --noconfirm
 
 RUN sed  -i 's/^# Server/Server/' "/etc/pacman.d/blackarch-mirrorlist"
 
-RUN pacman --needed --noconfirm --overwrite='*' 'python-termcolor' -Syu nmap metasploit sqlmap exploitdb gobuster joomlascan wfuzz ffuf openssh gdb android-apktool adb exploitpack gau radare2 smbclient openldap msf-mpc jq msfdb binwalk wordlistctl haiti groff bison ffmpeg
+RUN pacman --needed --noconfirm --overwrite='*' 'python-termcolor' -Syu nmap metasploit sqlmap exploitdb gobuster joomlascan wfuzz gtfoblookup ffuf openssh gdb android-apktool adb exploitpack gau radare2 smbclient openldap msf-mpc jq msfdb binwalk wordlistctl haiti groff bison ffmpeg
 
 
 COPY ./install.sh /home/penelope/
