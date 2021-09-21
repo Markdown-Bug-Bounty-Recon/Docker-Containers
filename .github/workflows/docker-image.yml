@@ -17,7 +17,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Enable Docker Experimental
       run: |
-        sudo bash -c 'echo "{\"experimental\": true}" >> /etc/docker/daemon.json'
+        sudo bash -c 'echo "{ "cgroup-parent": "/actions_job","experimental":true}" > /etc/docker/daemon.json'
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -38,7 +38,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Enable Docker Experimental
       run: |
-        sudo bash -c 'echo "{\"experimental\": true}" >> /etc/docker/daemon.json'
+        sudo bash -c 'echo "{ "cgroup-parent": "/actions_job","experimental":true}" > /etc/docker/daemon.json'
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -60,7 +60,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Enable Docker Experimental
       run: |
-        sudo bash -c 'echo "{\"experimental\": true}" >> /etc/docker/daemon.json'
+        sudo bash -c 'echo "{ "cgroup-parent": "/actions_job","experimental":true}" > /etc/docker/daemon.json'
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -82,7 +82,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Enable Docker Experimental
       run: |
-        sudo bash -c 'echo "{\"experimental\": true}" >> /etc/docker/daemon.json'
+        sudo bash -c 'echo "{ "cgroup-parent": "/actions_job","experimental":true}" > /etc/docker/daemon.json'
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -104,7 +104,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Enable Docker Experimental
       run: |
-        sudo bash -c 'echo "{\"experimental\": true}" >> /etc/docker/daemon.json'
+        sudo bash -c 'echo "{ "cgroup-parent": "/actions_job","experimental":true}" > /etc/docker/daemon.json'
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -126,7 +126,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Enable Docker Experimental
         run: |
-          sudo bash -c 'echo "{\"experimental\": true}" >> /etc/docker/daemon.json'
+          sudo bash -c 'echo "{ "cgroup-parent": "/actions_job","experimental":true}" > /etc/docker/daemon.json'
       - name: docker login
         env:
           DOCKER_USER: ${{secrets.DOCKER_USER}}
