@@ -21,23 +21,7 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 git clone --depth 1 https://github.com/Storyyeller/enjarify;
 ln -s /home/penelope/tools/enjarify/enjarify.sh /home/penelope/PATH/enjarify;
 cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
-# csv2md
-npm install -g csv2md
 
-# Python pwntools
-pip install pwn
-
-## mdtable (tsv to markdown table)
-cd /home/penelope/PATH || { echo "Failure in cd command"; exit 1; }
-wget https://raw.githubusercontent.com/kusabashira/mdtable/master/mdtable
-
-
-#Markdown-PP
-
-git clone https://github.com/jreese/markdown-pp.git
-cd markdown-pp || { echo "Failure in cd command"; exit 1; }
-pip install MarkdownPP
-cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 
 # r2frida
 r2pm init

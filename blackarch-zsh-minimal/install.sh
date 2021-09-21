@@ -22,5 +22,15 @@ cd /home/penelope/tools/ || { echo "Failure in cd command"; exit 1; }
 # ciphey
 python3 -m pip install ciphey --upgrade
 
+# Python pwntools
+pip install pwn
+
 # Granting permissions
 chmod -R 755 /home/penelope/PATH
+
+# Cleaning unneeded gcc binaries
+set -ex && \
+    rm -f /usr/libexec/gcc/x86_64-alpine-linux-musl/6.4.0/cc1obj && \
+    rm -f /usr/libexec/gcc/x86_64-alpine-linux-musl/6.4.0/lto1 && \
+    rm -f /usr/libexec/gcc/x86_64-alpine-linux-musl/6.4.0/lto-wrapper && \
+    rm -f /usr/bin/x86_64-alpine-linux-musl-gcj

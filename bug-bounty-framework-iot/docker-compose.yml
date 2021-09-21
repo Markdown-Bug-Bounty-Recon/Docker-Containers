@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  blackarch-zsh-minimal:
+  blackarch-zsh-iot:
     container_name: bug-bounty-framework-iot
     image: cloufish/bug-bounty-framework-iot:latest
     hostname: bug-bounty-framework-iot

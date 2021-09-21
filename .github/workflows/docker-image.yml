@@ -23,7 +23,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag cloufish/blackarch-zsh:latest
+        docker build . --file Dockerfile --squash --tag cloufish/blackarch-zsh:latest
       working-directory: ./blackarch-zsh
     - name: Docker Push
       run: docker push cloufish/blackarch-zsh
@@ -41,7 +41,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag cloufish/blackarch-zsh-minimal:latest
+        docker build . --file Dockerfile --squash --tag cloufish/blackarch-zsh-minimal:latest
       working-directory: ./blackarch-zsh-minimal
     - name: Docker Push
       run: docker push cloufish/blackarch-zsh-minimal
@@ -60,7 +60,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag cloufish/bug-bounty-framework-web:latest
+        docker build . --file Dockerfile --squash --tag cloufish/bug-bounty-framework-web:latest
       working-directory: ./bug-bounty-framework-web
     - name: Docker Push
       run: docker push cloufish/bug-bounty-framework-web
@@ -79,7 +79,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag cloufish/bug-bounty-framework-mobile:latest
+        docker build . --file Dockerfile --squash --tag  cloufish/bug-bounty-framework-mobile:latest
       working-directory: ./bug-bounty-framework-mobile
     - name: Docker Push
       run: docker push cloufish/bug-bounty-framework-mobile
@@ -98,7 +98,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag cloufish/bug-bounty-framework-iot:latest
+        docker build . --file Dockerfile --squash --tag cloufish/bug-bounty-framework-iot:latest
       working-directory: ./bug-bounty-framework-iot
     - name: Docker Push
       run: docker push cloufish/bug-bounty-framework-iot
@@ -117,7 +117,7 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Build the Docker image
         run: |
-          docker build . --file Dockerfile --tag cloufish/blackarch-zsh-forensics:latest
+          docker build . --file Dockerfile --squash --tag cloufish/blackarch-zsh-forensics:latest
         working-directory: ./blackarch-zsh-forensics
       - name: Docker Push
         run: docker push cloufish/blackarch-zsh-forensics
