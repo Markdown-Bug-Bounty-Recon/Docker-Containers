@@ -42,6 +42,7 @@ jobs:
   blackarch-zsh-minimal:
 
     runs-on: ubuntu-latest
+    needs: blackarch-zsh    
 
     steps:
     - uses: actions/checkout@v2
@@ -70,6 +71,7 @@ jobs:
   bug-bounty-framework-web:
 
     runs-on: ubuntu-latest
+    needs: blackarch-zsh 
 
     steps:
     - uses: actions/checkout@v2
@@ -98,6 +100,7 @@ jobs:
   bug-bounty-framework-mobile:
 
     runs-on: ubuntu-latest
+    needs: blackarch-zsh 
 
     steps:
     - uses: actions/checkout@v2
@@ -126,6 +129,7 @@ jobs:
   bug-bounty-framework-iot:
 
     runs-on: ubuntu-latest
+    needs: blackarch-zsh 
 
     steps:
     - uses: actions/checkout@v2
@@ -154,6 +158,7 @@ jobs:
   blackarch-zsh-forensics:
 
       runs-on: ubuntu-latest
+      needs: blackarch-zsh 
 
       steps:
       - uses: actions/checkout@v2
